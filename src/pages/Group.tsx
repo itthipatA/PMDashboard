@@ -7,10 +7,7 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  Checkbox,
-  Button,
-  Box,
-  Grid
+  Box
 } from '@mui/material';
 import {
   Search as SearchIcon,
