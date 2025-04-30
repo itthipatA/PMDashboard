@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { 
   Dashboard as DashboardIcon,
@@ -8,7 +8,6 @@ import {
   Group as GroupIcon,
   Assessment as ReportIcon,
   Notifications as AlertIcon,
-  VpnKey as LicenseIcon,
   Logout as LogoutIcon,
   Brightness4 as DarkModeIcon,
   Brightness7 as LightModeIcon,

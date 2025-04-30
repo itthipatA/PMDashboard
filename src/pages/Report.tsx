@@ -10,7 +10,6 @@ import {
   ListItemText,
   Checkbox,
   Button,
-  Divider,
   Box
 } from '@mui/material';
 import { Search as SearchIcon, Download as DownloadIcon } from '@mui/icons-material';
