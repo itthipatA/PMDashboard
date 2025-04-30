@@ -1,0 +1,282 @@
+/* Alert Page Container */
+.alert-page-container {
+  display: flex;
+  gap: 24px; /* Gap between filter column and content column */
+  height: calc(100vh - 48px); /* Adjust based on actual header/padding */
+  padding: 24px; /* Add padding to the overall container */
+}
+
+/* Left Filter Column */
+.alert-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 150px; /* Fixed width for the filter column */
+  flex-shrink: 0;
+  justify-content: center; /* Vertically center the buttons */
+  align-items: center; /* Horizontally center in case width changes */
+}
+
+.filter-button {
+  width: 100px !important;
+  height: 100px !important;
+  border-radius: 50% !important; /* Circular buttons */
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  text-transform: none !important; /* Prevent uppercase */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15) !important;
+  border: 2px solid transparent !important; /* For outline variant */
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.filter-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Specific colors for filter buttons */
+.filter-button.all {
+  background-color: var(--success-color) !important; 
+  color: white !important;
+}
+.filter-button.event {
+  background-color: var(--primary-color) !important; 
+  color: white !important;
+}
+.filter-button.device {
+  background-color: var(--accent-orange) !important;
+  color: white !important;
+}
+.filter-button.risk {
+  background-color: var(--danger-color) !important;
+  color: white !important;
+}
+
+/* Override outlined variant styles */
+.filter-button.MuiButton-outlined {
+    background-color: var(--card-bg-light) !important;
+    border: 2px solid !important;
+}
+.dark-mode .filter-button.MuiButton-outlined {
+    background-color: var(--card-bg-dark) !important;
+}
+
+.filter-button.all.MuiButton-outlined { color: var(--success-color) !important; border-color: var(--success-color) !important; }
+.filter-button.event.MuiButton-outlined { color: var(--primary-color) !important; border-color: var(--primary-color) !important; }
+.filter-button.device.MuiButton-outlined { color: var(--accent-orange) !important; border-color: var(--accent-orange) !important; }
+.filter-button.risk.MuiButton-outlined { color: var(--danger-color) !important; border-color: var(--danger-color) !important; }
+
+
+/* Right Content Column */
+.alert-content {
+  flex-grow: 1; /* Take remaining space */
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Prevent overflow issues with flex */
+}
+
+/* Header Section */
+.alert-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  margin-bottom: 16px;
+  background-color: var(--card-bg-light);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode .alert-header {
+  background-color: var(--card-bg-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.alert-stats span {
+  margin-right: 24px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.alert-stats .read-stat {
+  color: var(--success-color);
+}
+
+.alert-stats .unread-stat {
+  color: var(--danger-color);
+}
+
+.alert-header .search-container .MuiTextField-root {
+  width: 300px;
+}
+
+.alert-header .search-container .MuiOutlinedInput-root {
+  border-radius: 20px;
+  background-color: var(--bg-light);
+}
+
+.dark-mode .alert-header .search-container .MuiOutlinedInput-root {
+  background-color: var(--bg-dark);
+}
+
+/* Dark mode text/icon colors for alert search input */
+.dark-mode .alert-header .search-container .MuiInputBase-input {
+  color: var(--text-dark);
+}
+.dark-mode .alert-header .search-container .MuiInputBase-input::placeholder {
+  color: var(--text-secondary-dark);
+  opacity: 0.7;
+}
+.dark-mode .alert-header .search-container .MuiInputAdornment-root .MuiSvgIcon-root {
+  color: var(--text-secondary-dark);
+}
+
+/* Table Section */
+.alert-table-paper {
+  flex-grow: 1;
+  border-radius: 12px !important;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-bg-light);
+}
+
+.dark-mode .alert-table-paper {
+    background-color: var(--card-bg-dark);
+}
+
+.alert-table-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: auto; /* Add horizontal scroll */
+}
+
+/* Use same table head styles as Device page */
+.alert-table-paper .MuiTableHead-root .MuiTableRow-root {
+  background-color: #e9ecef;
+}
+
+.dark-mode .alert-table-paper .MuiTableHead-root .MuiTableRow-root {
+  background-color: #3a3f5a;
+}
+
+.alert-table-paper .MuiTableCell-head {
+  font-weight: 600 !important;
+  color: var(--text-secondary-light) !important;
+  background-color: inherit !important;
+  border-bottom: 1px solid var(--border-light) !important;
+}
+
+.dark-mode .alert-table-paper .MuiTableCell-head {
+    color: var(--text-secondary-dark) !important;
+    border-bottom: 1px solid var(--border-dark) !important;
+}
+
+/* Use same table body styles as Device page */
+.alert-table-paper .MuiTableCell-body {
+  font-size: 0.875rem !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  color: var(--text-light) !important;
+}
+
+.dark-mode .alert-table-paper .MuiTableCell-body {
+    border-bottom: 1px solid var(--border-dark) !important;
+    color: var(--text-dark) !important;
+}
+
+.alert-table-paper .MuiTableRow-root:last-child .MuiTableCell-body {
+  border-bottom: none !important;
+}
+
+/* Alert Status Icon */
+.alert-table-paper .status-icon {
+  font-size: 1.5rem !important;
+  vertical-align: middle;
+}
+
+.alert-table-paper .status-icon.read {
+  color: var(--success-color);
+}
+
+.alert-table-paper .status-icon.unread {
+  color: var(--danger-color);
+}
+
+/* Hide generic page title */
+.alert-page-container > h1 {
+  display: none;
+}
+
+/* Responsive Layout */
+@media (max-width: 992px) {
+  .alert-page-container {
+    flex-direction: column; /* Stack filter and content */
+    height: auto; /* Allow height to grow */
+    padding: 16px;
+  }
+  .alert-filters {
+    flex-direction: row; /* Filters horizontal */
+    width: 100%;
+    justify-content: center; /* Center filters */
+    gap: 15px;
+    margin-bottom: 16px;
+  }
+  .filter-button {
+    width: 80px !important; /* Smaller buttons */
+    height: 80px !important;
+    font-size: 0.85rem !important;
+  }
+  .alert-content {
+      /* Content takes full width now */
+  }
+}
+
+/* Header adjustments */
+@media (max-width: 768px) {
+  .alert-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+  .alert-stats {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+  }
+   .alert-stats span {
+       margin-right: 0;
+   }
+  .alert-header .search-container .MuiTextField-root {
+    width: 100%;
+  }
+}
+
+/* Table adjustments */
+@media (max-width: 576px) {
+    .alert-filters {
+        gap: 10px;
+        flex-wrap: wrap; /* Allow wrapping if needed */
+    }
+    .filter-button {
+        width: 70px !important;
+        height: 70px !important;
+        font-size: 0.8rem !important;
+    }
+    .alert-header {
+        padding: 12px;
+        border-radius: 8px;
+    }
+    .alert-stats span {
+        font-size: 0.85rem;
+    }
+
+    .alert-table-paper .MuiTableCell-head,
+    .alert-table-paper .MuiTableCell-body {
+        padding: 8px !important;
+        font-size: 0.8rem !important;
+        white-space: nowrap;
+    }
+    .alert-table-paper .status-icon {
+        font-size: 1.2rem !important;
+    }
+} 

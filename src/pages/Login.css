@@ -1,0 +1,218 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* Gradient background similar to image */
+  background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%); 
+  padding: 40px;
+  gap: 5%; /* Space between left and right sections */
+}
+
+/* Left Info Area */
+.login-info-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; /* Space between logo card and name card */
+  flex-basis: 35%; /* Adjust width proportion */
+}
+
+.info-card {
+  padding: 30px !important;
+  border-radius: 30px !important; /* Rounded corners */
+  background-color: rgba(255, 255, 255, 0.9) !important; /* Semi-transparent white */
+  text-align: center;
+  width: 100%; /* Make cards take available width in the column */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.info-logo {
+  max-width: 100px;
+  height: auto;
+}
+
+.info-title {
+  color: var(--text-secondary-light);
+  font-weight: 600 !important;
+}
+
+/* Right Login Form Area (Circle) */
+.login-form-circle {
+  flex-basis: 45%; /* Adjust width proportion */
+  aspect-ratio: 1 / 1; /* Make it a circle */
+  max-width: 500px; /* Max size */
+  max-height: 500px;
+  border-radius: 50% !important; 
+  background-color: rgba(255, 255, 255, 0.95) !important; /* Slightly more opaque white */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px !important; /* Inner padding */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.login-title {
+  color: var(--text-secondary-light) !important;
+  margin-bottom: 40px !important;
+  font-weight: 600 !important;
+}
+
+.login-form {
+  width: 80%; /* Form width inside the circle */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-input.MuiTextField-root {
+  margin-bottom: 30px !important;
+}
+
+/* Style for standard variant TextField */
+.login-input .MuiInput-underline:before {
+  border-bottom: 2px solid var(--border-light) !important;
+}
+.login-input .MuiInput-underline:hover:not(.Mui-disabled):before {
+  border-bottom: 2px solid var(--primary-color) !important;
+}
+.login-input .MuiInput-underline:after {
+  border-bottom: 2px solid var(--primary-color) !important;
+}
+.login-input .MuiInputLabel-root {
+  color: var(--text-secondary-light) !important;
+}
+.login-input .MuiInputLabel-root.Mui-focused {
+  color: var(--primary-color) !important;
+}
+
+
+.login-button.MuiButton-root {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+  border-radius: 25px !important; /* Rounded button */
+  padding: 10px 40px !important;
+  font-size: 1rem !important;
+  margin-top: 20px !important;
+  transition: background-color 0.3s, transform 0.2s !important;
+}
+
+.login-button.MuiButton-root:hover {
+  background-color: #0b5ed7 !important; /* Darker blue */
+  transform: scale(1.05);
+}
+
+.error-message {
+  color: var(--danger-color);
+  background-color: rgba(220, 53, 69, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+  width: 100%;
+  text-align: center;
+}
+
+/* Hide old elements if they existed */
+.login-card h1, .login-card h2 {
+  display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .login-container {
+    flex-direction: column; /* Stack vertically */
+    justify-content: center; /* Center vertically */
+    gap: 30px;
+    padding: 30px;
+  }
+  
+  /* Adjust info area */
+  .login-info-area {
+    flex-basis: auto; /* Reset basis */
+    width: 90%; /* Adjust width */
+    max-width: 400px;
+    gap: 20px;
+    /* Remove order: 2 */
+  }
+
+  /* Adjust form circle to be a card */
+  .login-form-circle {
+    flex-basis: auto; /* Reset basis */
+    width: 90%;
+    max-width: 450px;
+    max-height: none; /* Remove fixed height */
+    aspect-ratio: auto; /* Allow it to not be a circle */
+    border-radius: 30px !important; /* Make it a rounded rect */
+    padding: 40px !important;
+    order: 2; /* Form comes second */
+  }
+
+  /* Order the cards */
+  .logo-card {
+      order: 1; /* Logo first */
+      width: 100%; /* Ensure it takes width in info area */
+      padding: 20px !important; /* Adjust padding if needed */
+  }
+
+  .system-name-card {
+      order: 3; /* System name last */
+      width: 100%; /* Ensure it takes width in info area */
+      padding: 20px !important; /* Adjust padding if needed */
+  }
+
+  /* Adjustments for smaller elements */
+  .login-title {
+      margin-bottom: 30px !important;
+      font-size: 1.8rem !important;
+  }
+  .login-form {
+      width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .login-container {
+      padding: 20px;
+  }
+  .login-info-area {
+      width: 95%;
+  }
+   .info-card {
+       padding: 20px !important;
+       border-radius: 20px !important;
+   }
+   .logo-card img {
+       max-width: 80px;
+   }
+   .system-name-card .MuiTypography-h5 {
+       font-size: 1.1rem;
+   }
+  .login-form-circle {
+      width: 100%;
+      padding: 30px !important;
+      border-radius: 20px !important;
+  }
+   .login-title {
+       margin-bottom: 25px !important;
+       font-size: 1.5rem !important;
+   }
+   .login-input.MuiTextField-root {
+       margin-bottom: 25px !important;
+   }
+   .login-button.MuiButton-root {
+       padding: 8px 30px !important;
+       font-size: 0.9rem !important;
+   }
+} 
+
+/* Remove styles specific to the rejected design if they exist */
+/* .login-graphic-side, .graphic-content, .graphic-circle, .login-form-side, 
+   .login-form-card, .login-subtitle, .login-options, .remember-me-checkbox, 
+   .forgot-password-link, .primary-login-button, .login-divider, 
+   .secondary-login-button, .signup-link, .login-form-logo { display: none; } */ 

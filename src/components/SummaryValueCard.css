@@ -1,0 +1,111 @@
+.summary-value-card {
+  border-radius: 12px !important;
+  padding: 12px 16px;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.summary-value-card:hover {
+    transform: translateY(-2px);
+}
+
+.summary-card-title {
+  display: block;
+  font-size: 0.8rem !important;
+  margin-bottom: 4px !important;
+  font-weight: 500 !important;
+}
+
+.summary-card-value-container {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.summary-card-value {
+  font-weight: 600 !important;
+  line-height: 1.1 !important;
+  text-align: right; /* Align the value text to the right */
+  flex-grow: 1; /* Allow the value to take up available space */
+}
+
+.summary-card-unit {
+  font-size: 0.85rem !important;
+  font-weight: 400 !important;
+}
+
+/* Default/Max PM2.5 */
+.summary-value-card.max-pm {
+  background-color: var(--max-pm-bg-light);
+  color: var(--max-pm-text-light);
+}
+
+/* Average PM2.5 */
+.summary-value-card.avg-pm {
+  background-color: var(--avg-pm-bg-light);
+  color: var(--avg-pm-text-light);
+}
+
+/* Minimum PM2.5 */
+.summary-value-card.min-pm {
+  background-color: var(--min-pm-bg-light);
+  color: var(--min-pm-text-light);
+}
+
+/* Max Temperature */
+.summary-value-card.max-temp {
+  background-color: var(--max-temp-bg-light);
+  color: var(--max-temp-text-light);
+}
+
+/* Average Temperature */
+.summary-value-card.avg-temp {
+  background-color: var(--avg-temp-bg-light);
+  color: var(--avg-temp-text-light);
+}
+
+/* Minimum Temperature */
+.summary-value-card.min-temp {
+  background-color: var(--min-temp-bg-light);
+  color: var(--min-temp-text-light);
+}
+
+/* Dark Mode */
+.dark-mode .summary-value-card.max-pm {
+  background-color: var(--max-pm-bg-dark);
+  color: var(--max-pm-text-dark);
+}
+
+.dark-mode .summary-value-card.avg-pm {
+  background-color: var(--avg-pm-bg-dark);
+  color: var(--avg-pm-text-dark);
+}
+
+.dark-mode .summary-value-card.min-pm {
+  background-color: var(--min-pm-bg-dark);
+  color: var(--min-pm-text-dark);
+}
+
+.dark-mode .summary-value-card.max-temp {
+  background-color: var(--max-temp-bg-dark);
+  color: var(--max-temp-text-dark);
+}
+
+.dark-mode .summary-value-card.avg-temp {
+  background-color: var(--avg-temp-bg-dark);
+  color: var(--avg-temp-text-dark);
+}
+
+.dark-mode .summary-value-card.min-temp {
+  background-color: var(--min-temp-bg-dark);
+  color: var(--min-temp-text-dark);
+}
+
+/* Adjust unit color in dark mode */
+.dark-mode .summary-value-card .summary-card-unit {
+    color: var(--text-secondary-dark) !important;
+}
+/* Adjust title color in dark mode */
+.dark-mode .summary-value-card .summary-card-title {
+    color: var(--text-secondary-dark) !important;
+} 

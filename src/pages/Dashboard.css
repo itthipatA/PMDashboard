@@ -1,0 +1,557 @@
+.dashboard-container {
+  padding: 24px;
+  background-color: var(--bg-light);
+}
+
+.dark-mode .dashboard-container {
+  background-color: var(--bg-dark);
+}
+
+.dashboard-container h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: var(--text-light);
+}
+
+.dark-mode .dashboard-container h1 {
+  color: var(--text-dark);
+}
+
+/* New Ticker Styles */
+.header-swiper-container {
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 24px;
+}
+
+.dark-mode .header-swiper-container {
+  background-color: var(--bg-dark);
+}
+
+.header-swiper .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+.header-swiper .swiper-slide {
+  width: auto;
+}
+
+.header-card {
+  flex-shrink: 0;
+  width: 260px;
+  background-color: var(--card-bg-light);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out;
+}
+
+.dark-mode .header-card {
+  background-color: var(--card-bg-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header-card:hover {
+  transform: translateY(-3px);
+}
+
+.header-card-title {
+  font-size: 0.9rem;
+  color: var(--text-secondary-light);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.dark-mode .header-card-title {
+  color: var(--text-secondary-dark);
+}
+
+.header-card-value {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: baseline;
+  justify-content: right;
+}
+
+.header-card-value span:first-child {
+  /* Color is set via inline style based on props */
+}
+
+.header-card-unit {
+  font-size: 0.9rem;
+  color: var(--text-secondary-light);
+  margin-left: 6px;
+  font-weight: 400;
+}
+
+.dark-mode .header-card-unit {
+  color: var(--text-secondary-dark);
+}
+
+.header-card-update {
+  font-size: 0.8rem;
+  color: var(--text-secondary-light);
+  display: flex;
+  align-items: center;
+}
+
+.dark-mode .header-card-update {
+  color: var(--text-secondary-dark);
+}
+
+.header-card-update .MuiSvgIcon-root {
+  margin-right: 4px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 1200px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chart-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.info-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.chart-card, .map-card, .device-card {
+  background-color: var(--card-bg-light);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode .chart-card, 
+.dark-mode .map-card, 
+.dark-mode .device-card {
+  background-color: var(--card-bg-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.chart-card h3 {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.dark-mode .chart-card h3 {
+  color: var(--text-dark);
+}
+
+.chart-wrapper {
+  height: 220px;
+  position: relative;
+}
+
+.map-card {
+  min-height: 300px;
+  display: flex;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.device-card h3 {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dark-mode .device-card h3 {
+  color: var(--text-dark);
+}
+
+.total-devices {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-secondary-light);
+}
+
+.dark-mode .total-devices {
+  color: var(--text-secondary-dark);
+}
+
+.device-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.device-list-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.dark-mode .device-list-item {
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.device-list-item:last-child {
+  border-bottom: none;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.status-dot.good {
+  background-color: var(--success-color);
+}
+
+.status-dot.unhealthy {
+  background-color: var(--danger-color);
+}
+
+.device-info {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.device-name {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 2px;
+}
+
+.dark-mode .device-name {
+  color: var(--text-dark);
+}
+
+.device-details {
+  font-size: 0.8rem;
+  color: var(--text-secondary-light);
+}
+
+.dark-mode .device-details {
+  color: var(--text-secondary-dark);
+}
+
+.device-readings {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 0.85rem;
+  color: var(--text-secondary-light);
+  flex-shrink: 0;
+}
+
+.dark-mode .device-readings {
+  color: var(--text-secondary-dark);
+}
+
+.device-temp, .device-battery {
+  display: flex;
+  align-items: center;
+}
+
+.device-readings .MuiSvgIcon-root {
+  font-size: 1rem;
+  margin-right: 4px;
+}
+
+.device-temp {
+  margin-bottom: 2px;
+  color: var(--text-light);
+}
+
+.dark-mode .device-temp {
+  color: var(--text-dark);
+}
+
+table {
+  display: none;
+}
+
+/* Responsive Styles */
+
+/* Adjust header grid */
+@media (max-width: 576px) {
+    .header-grid {
+        grid-template-columns: 1fr; /* Stack header cards */
+        gap: 15px;
+    }
+     .header-card-value {
+         font-size: 1.8rem;
+     }
+}
+
+/* Adjust main grid */
+@media (max-width: 1200px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr; /* Stack columns */
+  }
+}
+
+/* Adjust device list item layout */
+@media (max-width: 576px) {
+    .device-list-item {
+        flex-direction: column;
+        align-items: flex-start; /* Align items to start */
+        gap: 8px;
+        position: relative; /* Needed for absolute dot positioning */
+        padding-left: 25px; /* Space for the dot */
+    }
+    .status-dot {
+        position: absolute; 
+        top: 14px; /* Adjust vertical position */
+        left: 0;
+        margin-right: 0;
+        width: 10px;
+        height: 10px;
+    }
+    .device-info {
+        margin-left: 0; /* Remove previous indent */
+    }
+    .device-readings {
+        flex-direction: row; /* Readings side-by-side */
+        gap: 15px;
+        align-items: center;
+        width: 100%;
+        margin-left: 0; /* Remove previous indent */
+        justify-content: flex-start;
+    }
+     .device-temp, .device-battery {
+         margin-bottom: 0;
+     }
+}
+
+/* Chart adjustments */
+@media (max-width: 576px) {
+    .chart-wrapper {
+        height: 200px; /* Smaller charts */
+    }
+     .chart-card h3 {
+         font-size: 1rem;
+     }
+}
+
+/* New container for PM2.5 summary cards */
+.pm25-summary-container {
+    /* display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 16px; */
+}
+
+/* Common style for summary card rows */
+.summary-card-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    gap: 16px;
+    /* margin-top: 20px;  */
+}
+
+/* Add back dark mode border style */
+.dark-mode .pm25-summary-container {
+    border-top-color: var(--border-dark);
+}
+
+/* Adjust PM2.5 summary cards layout on smaller screens */
+@media (max-width: 576px) {
+    .pm25-summary-container {
+        /* grid-template-columns: 1fr; 
+        gap: 12px;
+        margin-top: 15px; */
+    }
+    /* Common adjustment for summary card rows on smaller screens */
+    .summary-card-row {
+        grid-template-columns: 1fr; /* Stack summary cards */
+        gap: 12px;
+        margin-top: 15px;
+    }
+    .summary-value-card .summary-card-value {
+        font-size: 1.5rem !important; /* Smaller value font */
+    }
+}
+
+/* --- Tablet and Larger Mobile (e.g., < 992px or < 1200px depending on preference) --- */
+@media (max-width: 992px) { /* Example breakpoint for tablets */
+  .dashboard-container {
+    padding: 16px; /* Reduce container padding */
+  }
+  .dashboard-grid,
+  .chart-column,
+  .info-column {
+    gap: 16px; /* Reduce gaps */
+  }
+  .map-card {
+    min-height: 250px; /* Reduce map minimum height */
+  }
+}
+
+/* --- Mobile (< 768px or existing < 576px) --- */
+@media (max-width: 576px) {
+    .dashboard-container {
+        padding: 12px;
+    }
+    .header-swiper-container {
+        margin-bottom: 16px;
+    }
+    .dashboard-grid {
+        gap: 16px;
+    }
+    .chart-column, .info-column {
+        gap: 16px;
+    }
+    .chart-card, .map-card, .device-card {
+        padding: 15px;
+        border-radius: 12px;
+    }
+    .chart-card h3 {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+    .chart-wrapper {
+        height: 180px; /* Reduced chart height */
+    }
+    .summary-card-row {
+        flex-direction: column; /* Stack summary cards */
+        align-items: stretch; /* Make cards full width */
+        gap: 12px; /* Adjust gap for vertical stacking */
+    }
+    .map-card {
+        min-height: 250px; /* Adjust map height */
+    }
+    .device-card h3 {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+    .total-devices {
+        font-size: 0.85rem;
+    }
+    .device-list {
+        max-height: 250px; /* Adjust list height */
+    }
+    .device-list-item {
+        padding: 10px 0;
+    }
+    .device-name {
+        font-size: 0.85rem;
+    }
+    .device-details {
+        font-size: 0.75rem;
+    }
+    .device-readings {
+        font-size: 0.8rem;
+        gap: 8px;
+    }
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 1200px) {
+/* ... existing rules ... */
+}
+
+@media (max-width: 768px) {
+    /* Add responsive rules for medium screens if needed */
+}
+
+@media (max-width: 576px) {
+    .dashboard-container {
+        padding: 12px;
+    }
+    .header-swiper-container {
+        margin-bottom: 16px;
+    }
+    .dashboard-grid {
+        gap: 16px;
+    }
+    .chart-column, .info-column {
+        gap: 16px;
+    }
+    .chart-card, .map-card, .device-card {
+        padding: 15px;
+        border-radius: 12px;
+    }
+    .chart-card h3 {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+    .chart-wrapper {
+        height: 180px; /* Reduced chart height */
+    }
+    .summary-card-row {
+        flex-direction: column; /* Stack summary cards */
+        align-items: stretch; /* Make cards full width */
+        gap: 12px; /* Adjust gap for vertical stacking */
+    }
+    .map-card {
+        min-height: 250px; /* Adjust map height */
+    }
+    .device-card h3 {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+    .total-devices {
+        font-size: 0.85rem;
+    }
+    .device-list {
+        max-height: 250px; /* Adjust list height */
+    }
+    .device-list-item {
+        padding: 10px 0;
+    }
+    .device-name {
+        font-size: 0.85rem;
+    }
+    .device-details {
+        font-size: 0.75rem;
+    }
+    .device-readings {
+        font-size: 0.8rem;
+        gap: 8px;
+    }
+} /* Close the 576px media query correctly */
+
+/* Commented out potentially conflicting rules */
+/* 
+.pm25-summary-container {
+    // ... 
+}
+.summary-card-row {
+    // ...
+}
+.dark-mode .pm25-summary-container {
+    // ...
+}
+@media (max-width: 576px) {
+    .pm25-summary-container {
+        // ...
+    }
+    .summary-card-row {
+        // ...
+    }
+    .summary-value-card .summary-card-value {
+        // ...
+    }
+} 
+*/ 

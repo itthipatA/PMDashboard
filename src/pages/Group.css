@@ -1,0 +1,404 @@
+/* src/pages/Group.css */
+
+.group-page-container {
+  display: flex;
+  gap: 16px; /* Gap between panels */
+  padding: 16px;
+  height: calc(100vh - 48px); /* Adjust based on actual header/padding */
+  background-color: var(--bg-light); 
+}
+
+.dark-mode .group-page-container {
+  background-color: var(--bg-dark);
+}
+
+/* Common Panel Styling */
+.panel {
+  background-color: var(--card-bg-light);
+  border-radius: 16px !important;
+  padding: 0; /* Remove padding, handle internally */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent content overflow */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.dark-mode .panel {
+    background-color: var(--card-bg-dark);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Specific Panel Widths */
+.group-list-panel,
+.sensor-list-panel {
+  width: 250px; /* Slightly reduced width */
+  flex-shrink: 0;
+}
+
+.map-device-panel {
+  /* Remove this or rename if needed */
+  /* flex-grow: 1; */ 
+}
+
+/* Panel Header Bar */
+.panel-title-bar {
+  padding: 10px 16px;
+  border-top: 4px solid var(--primary-color);
+  border-radius: 16px 16px 0 0; /* Match top radius */
+}
+
+/* Remove top border specifically for list panels */
+.group-list-panel .panel-title-bar,
+.sensor-list-panel .panel-title-bar {
+  border-top: none;
+}
+
+.panel-title-bar h6 {
+  /* color: var(--primary-color) !important; */ /* Removed */
+  color: var(--text-light) !important; /* Use primary text color for light mode */
+  font-weight: 600 !important;
+  text-align: center;
+}
+
+.dark-mode .panel-title-bar h6 {
+  color: var(--text-dark) !important; /* Use primary dark color for dark mode */
+}
+
+/* Search Input */
+.search-input {
+  margin: 8px auto 12px auto !important; /* Center horizontally, keep vertical margins */
+  width: 80%; /* Reduce width by 20% */
+  display: block; /* Needed for auto margins to work correctly */
+}
+
+.search-input .MuiOutlinedInput-root {
+  border-radius: 20px !important; 
+  background-color: var(--bg-light);
+}
+
+.dark-mode .search-input .MuiOutlinedInput-root {
+    background-color: var(--bg-dark);
+}
+
+/* Ensure input text color is correct in dark mode */
+.dark-mode .search-input .MuiInputBase-input {
+  color: var(--text-dark);
+}
+
+/* Style placeholder text color in dark mode */
+.dark-mode .search-input .MuiInputBase-input::placeholder {
+  color: var(--text-secondary-dark);
+  opacity: 0.7; /* Optional: make placeholder slightly less prominent */
+}
+
+/* Style search icon color in dark mode */
+.dark-mode .search-input .MuiInputAdornment-root .MuiSvgIcon-root {
+  color: var(--text-secondary-dark);
+}
+
+/* List Header */
+.list-header-card {
+  padding: 8px 16px !important;
+  margin: 0 16px 8px 16px !important; /* Add horizontal margin */
+  background-color: #e9ecef !important;
+  color: var(--text-secondary-light) !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  text-align: center;
+  border: none !important;
+}
+
+.dark-mode .list-header-card {
+    background-color: #3a3f5a !important;
+    color: var(--text-secondary-dark) !important;
+}
+
+/* Scrollable List */
+.scrollable-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 0 8px 8px 8px !important; /* Add padding for scrollbar and items */
+}
+
+/* List Item */
+.list-item.MuiListItemButton-root {
+  padding: 6px 12px !important;
+  border-bottom: 1px solid var(--border-light);
+  border-radius: 8px;
+  margin-bottom: 2px;
+}
+
+.dark-mode .list-item.MuiListItemButton-root {
+    border-bottom-color: var(--border-dark);
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-item .MuiListItemText-primary {
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-light);
+}
+
+.dark-mode .list-item .MuiListItemText-primary {
+    color: var(--text-dark);
+}
+
+.list-item.Mui-selected {
+    background-color: rgba(17, 112, 227, 0.1) !important; /* Light blue selection */
+}
+
+.dark-mode .list-item.Mui-selected {
+    background-color: rgba(17, 112, 227, 0.2) !important; /* Slightly darker blue selection for dark mode */
+}
+
+.list-item.Mui-selected .MuiListItemText-primary {
+    font-weight: 600;
+    /* color: var(--primary-color) !important; */ /* Removed */
+    color: var(--text-light) !important; /* Use primary text color for light mode */
+}
+
+.dark-mode .list-item.Mui-selected .MuiListItemText-primary {
+    color: var(--text-dark) !important; /* Use primary dark color for dark mode */
+}
+
+/* Map & Device Panel Specifics */
+.map-container {
+  height: 100%; 
+  flex-shrink: 0;
+  /* background-color: #eee; Remove placeholder color */
+  /* Ensure no padding if needed, although parent panel should handle it */
+  padding: 0; 
+}
+
+.device-details-container {
+  padding: 12px 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Allow device list to scroll */
+}
+
+.device-list-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-light);
+}
+
+.dark-mode .device-list-title {
+   border-bottom-color: var(--border-dark);
+   color: var(--text-dark);
+}
+
+.device-list-title .MuiTypography-caption {
+  color: var(--text-secondary-light);
+}
+.dark-mode .device-list-title .MuiTypography-caption {
+  color: var(--text-secondary-dark);
+}
+
+.device-summary-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.device-summary-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.dark-mode .device-summary-item {
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.device-summary-item:last-child {
+  border-bottom: none;
+}
+
+/* Re-use status-dot styles from Dashboard.css or define here */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+.status-dot.good { background-color: var(--success-color); }
+.status-dot.unhealthy { background-color: var(--danger-color); }
+
+.device-info {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.device-name {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 2px;
+}
+.dark-mode .device-name { color: var(--text-dark); }
+
+.device-details {
+  font-size: 0.8rem;
+  color: var(--text-secondary-light);
+}
+.dark-mode .device-details { color: var(--text-secondary-dark); }
+
+.device-readings {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between temp and battery */
+  font-size: 0.85rem;
+  color: var(--text-secondary-light);
+  flex-shrink: 0;
+}
+.dark-mode .device-readings { color: var(--text-secondary-dark); }
+
+.device-temp, .device-battery {
+  display: flex;
+  align-items: center;
+}
+
+.device-readings .MuiSvgIcon-root {
+  font-size: 1rem;
+  margin-right: 3px;
+}
+
+/* New styles for the right column structure */
+.center-column-container { /* Renamed from right-column-container */
+  display: flex;
+  flex-direction: column;
+  gap: 16px; 
+  flex-grow: 1; 
+  overflow: hidden; 
+}
+
+.map-panel {
+  height: 45%; 
+  flex-shrink: 0;
+}
+
+.device-panel {
+  flex-grow: 1; 
+}
+
+.device-details-container {
+  /* Keep existing styles, ensure it fills the device-panel */
+  padding: 12px 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; 
+}
+
+/* New Summary Panel */
+.summary-panel {
+  width: 250px; /* Match group/sensor panel width */
+  flex-shrink: 0;
+  padding: 16px; 
+  gap: 16px; 
+  align-items: stretch; 
+  /* Inherits .panel styles */
+}
+
+.summary-header {
+    text-align: center;
+    color: var(--text-secondary-light);
+    font-weight: 600 !important;
+    margin-bottom: 8px;
+    /* margin-top: 16px; */
+}
+.dark-mode .summary-header {
+    color: var(--text-secondary-dark);
+}
+
+.summary-cards-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Gap between summary cards */
+}
+
+/* Style for the selected group/sensor info box */
+.dark-mode .summary-panel .MuiBox-root .MuiTypography-caption {
+  color: var(--text-secondary-dark); /* Use secondary dark text color */
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .group-page-container {
+    flex-direction: column;
+    height: auto;
+    overflow-y: auto; /* Allow page scroll */
+  }
+  .panel {
+    width: 100% !important; /* Full width panels */
+    margin-bottom: 16px;
+    max-height: 60vh; /* Limit height */
+  }
+  .center-column-container { /* Keep map/device first */
+     order: -1; 
+     gap: 16px; 
+     flex-grow: 0; 
+  }
+  .summary-panel { 
+    order: 3; /* Summary panel stacks last */
+    max-height: none; 
+  }
+  .map-panel {
+     height: 300px; /* Keep fixed height */
+     max-height: none; /* Remove max height */
+   }
+   .device-panel {
+       max-height: 40vh; /* Limit device panel height */
+       min-height: 250px; /* Ensure some space */
+   }
+   .scrollable-list {
+     /* max-height: 30vh; */ 
+   }
+    .device-summary-list {
+        /* max-height: 250px; */
+    }
+}
+
+@media (max-width: 768px) {
+    .group-page-container { padding: 10px; gap: 10px; }
+    .panel { border-radius: 12px !important; }
+    .panel-title-bar { padding: 8px 12px; }
+    .search-input { margin: 8px 12px !important; }
+    .list-header-card { padding: 6px 12px !important; margin: 0 12px 6px 12px !important; }
+    .scrollable-list { padding: 0 4px 4px 4px !important; }
+    .list-item.MuiListItemButton-root { padding: 4px 10px !important; }
+    .list-item .MuiListItemText-primary { font-size: 0.8rem; }
+    .device-details-container { padding: 10px 12px; }
+    .device-list-title { margin-bottom: 6px; padding-bottom: 6px;}
+    .device-summary-item { padding: 8px 0; flex-wrap: wrap; } /* Allow wrapping */
+    .device-readings { width: 100%; margin-top: 5px; justify-content: flex-end; }
+    .center-column-container {
+      gap: 10px;
+    }
+    .map-panel {
+        height: 250px; /* Smaller map height */
+    }
+    .device-panel {
+        max-height: 35vh; /* Further limit */
+        min-height: 200px;
+    }
+    .summary-panel { padding: 12px; gap: 12px; } 
+    .summary-header { margin-bottom: 6px; }
+    .summary-cards-group { gap: 10px; }
+} 

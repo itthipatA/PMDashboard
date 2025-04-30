@@ -1,0 +1,463 @@
+/* Report Page Container */
+.report-page-container {
+  display: flex;
+  gap: 16px; /* Gap between panels */
+  height: calc(100vh - 48px); /* Adjust based on actual header/padding */
+  padding: 16px;
+  background-color: var(--bg-light);
+  overflow: hidden; /* Prevent main container scroll */
+}
+
+.dark-mode .report-page-container {
+    background-color: var(--bg-dark);
+}
+
+/* Common Panel Styling */
+.selection-panel, .report-preview-panel {
+  background-color: var(--card-bg-light);
+  border-radius: 16px !important;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent content overflow */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.dark-mode .selection-panel,
+.dark-mode .report-preview-panel {
+    background-color: var(--card-bg-dark);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Group & Sensor Selection Panels */
+.group-panel, .sensor-panel {
+  width: 250px; /* Fixed width */
+  flex-shrink: 0;
+}
+
+.panel-header {
+  text-align: center;
+  font-weight: 600 !important;
+  color: var(--primary-color) !important;
+  margin-bottom: 10px !important;
+}
+
+.search-bar.MuiTextField-root {
+  margin-bottom: 10px;
+}
+
+.search-bar .MuiOutlinedInput-root {
+  border-radius: 20px;
+  background-color: var(--bg-light);
+}
+
+.dark-mode .search-bar .MuiOutlinedInput-root {
+    background-color: var(--bg-dark);
+}
+
+/* Dark mode text/icon colors for search bar */
+.dark-mode .search-bar .MuiInputBase-input {
+  color: var(--text-dark);
+}
+.dark-mode .search-bar .MuiInputBase-input::placeholder {
+  color: var(--text-secondary-dark);
+  opacity: 0.7;
+}
+.dark-mode .search-bar .MuiInputAdornment-root .MuiSvgIcon-root {
+  color: var(--text-secondary-dark);
+}
+
+.list-header {
+  padding: 8px 12px !important;
+  margin-bottom: 5px !important;
+  background-color: #e9ecef !important;
+  color: var(--text-secondary-light);
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  font-size: 0.9rem !important;
+  text-align: center;
+  border: none !important;
+}
+
+/* More specific selector for dark mode */
+.dark-mode .selection-panel .list-header {
+    background-color: #3a3f5a !important; /* Keep background color important if needed */
+    color: var(--text-secondary-dark) !important; /* Ensure text color overrides */
+}
+
+.selection-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 0 !important;
+}
+
+.list-item.MuiListItem-root {
+  padding: 6px 12px !important;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 2px;
+}
+
+.dark-mode .list-item.MuiListItem-root {
+    border-bottom-color: var(--border-dark);
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-item .MuiListItemText-primary {
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-light);
+}
+
+/* Increase specificity for dark mode list item text */
+.dark-mode .selection-panel .list-item .MuiListItemText-primary {
+    color: var(--text-dark) !important; /* Add !important */
+}
+
+.list-item.Mui-selected {
+    background-color: rgba(13, 110, 253, 0.1) !important;
+}
+
+/* Increase specificity for dark mode selected list item text */
+.dark-mode .selection-panel .list-item.Mui-selected .MuiListItemText-primary {
+    color: var(--text-dark) !important; /* Keep important if needed for selection */
+}
+
+/* Style Checkbox icon color in dark mode */
+.dark-mode .selection-panel .list-item .MuiCheckbox-root svg {
+  color: var(--text-secondary-dark); /* Use secondary dark color for the checkbox outline */
+}
+
+/* Date Selection & Download Panel */
+.date-panel {
+  width: 350px; /* Adjust width */
+  flex-shrink: 0;
+  justify-content: space-between; /* Push download to bottom */
+}
+
+.date-panel .MuiCalendarPicker-root {
+    width: 100% !important;
+    max-height: 400px; /* Limit calendar height */
+}
+
+/* Customize date picker appearance */
+.date-panel .MuiPickersDay-root {
+    border-radius: 8px; 
+    color: var(--text-light);
+}
+
+.date-panel .MuiPickersDay-today {
+    border-color: var(--primary-color);
+}
+
+/* Style for selected start/end dates */
+/* Combine selectors for start and end dates */
+.date-panel .MuiPickersDay-root.start-date-selected,
+.date-panel .MuiPickersDay-root.end-date-selected {
+   background-color: #1170e3 !important; /* Blue color */
+   color: white !important;
+   border-radius: 50% !important; 
+}
+
+/* Dark mode combined selector */
+.dark-mode .date-panel .MuiPickersDay-root.start-date-selected,
+.dark-mode .date-panel .MuiPickersDay-root.end-date-selected {
+   background-color: #64a6f1 !important; /* Lighter blue for dark mode */
+   color: white !important;
+}
+
+/* Style for days within the selected range */
+.date-panel .MuiDateCalendar-root .in-range-day {
+   background-color: rgba(17, 112, 227, 0.1); /* Light blue */
+   color: #333; 
+   border-radius: 0; 
+}
+
+.dark-mode .date-panel .MuiDateCalendar-root .in-range-day {
+    background-color: rgba(100, 166, 241, 0.2); /* Lighter blue for dark mode */
+    color: var(--text-dark);
+}
+
+/* Ensure selected start/end days override the range background appearance */
+/* Combine selectors here as well */
+.date-panel .MuiDateCalendar-root .in-range-day.start-date-selected,
+.date-panel .MuiDateCalendar-root .in-range-day.end-date-selected {
+  background-color: #1170e3 !important; /* Keep the selected blue color */
+  color: white !important;
+  border-radius: 50% !important; 
+}
+
+.download-section {
+  text-align: center;
+  margin-top: auto; /* Push to bottom */
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+}
+
+.dark-mode .download-section {
+    border-top-color: var(--border-dark);
+}
+
+.download-button.MuiIconButton-root {
+  background-color: var(--primary-color);
+  color: white;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 4px;
+}
+
+.download-button.MuiIconButton-root:hover {
+  background-color: #0b5ed7;
+}
+
+.download-section .MuiTypography-caption {
+    color: var(--text-secondary-light);
+}
+
+.dark-mode .download-section .MuiTypography-caption {
+    color: var(--text-secondary-dark);
+}
+
+/* Report Preview Panel */
+.report-preview-panel {
+  flex-grow: 1; /* Take remaining width */
+  background-color: #ffffff;
+  padding: 40px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+}
+
+.report-header-text {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.report-title-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.title-line {
+    width: 5px;
+    height: 80px; /* Adjust height as needed */
+    background-color: var(--primary-color);
+    margin-right: 15px;
+}
+
+.report-title-section h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.3;
+}
+
+.report-details {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: auto; /* Push footer down */
+}
+
+.report-details p {
+    margin-bottom: 8px;
+}
+
+.report-footer {
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.logo-text-rf-small {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0056b3;
+    line-height: 1;
+    position: relative;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.logo-text-rf-small::after {
+    content: "®";
+    font-size: 0.6rem;
+    position: absolute;
+    top: 0;
+    right: -8px;
+}
+
+.dark-mode .report-header-text {
+    color: var(--text-secondary-dark);
+}
+
+.dark-mode .report-title-section h1 {
+    color: var(--text-dark);
+}
+
+.dark-mode .report-details {
+    color: var(--text-secondary-dark);
+}
+
+.dark-mode .report-footer {
+    color: var(--text-secondary-dark);
+}
+
+.dark-mode .logo-text-rf-small {
+    color: #a9d1ff;
+}
+
+/* Hide generic page title */
+.report-page-container > h1 {
+  display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .report-page-container {
+        flex-direction: column; /* Stack all panels */
+        height: auto; /* Allow height to adjust */
+        overflow-y: auto; /* Allow page scroll */
+    }
+    .selection-panel, .report-preview-panel {
+        width: 100% !important; /* Full width for all panels */
+        margin-bottom: 16px;
+        max-height: 50vh; /* Limit panel height */
+    }
+     .date-panel {
+         max-height: none; /* Allow calendar panel to grow */
+     }
+    .report-preview-panel {
+        /* height: 60vh; */ /* Removed fixed height */
+         height: auto;
+        min-height: 500px; /* Ensure preview is readable */
+         order: 4; /* Preview last */
+    }
+     .selection-list {
+         max-height: 200px; /* Limit list height */
+     }
+}
+
+@media (max-width: 768px) {
+    .report-page-container {
+        padding: 10px;
+        gap: 10px;
+    }
+    .selection-panel, .report-preview-panel {
+        padding: 12px;
+        border-radius: 12px !important;
+    }
+    .group-panel, .sensor-panel {
+        max-height: 40vh;
+    }
+     .list-item .MuiListItemText-primary {
+         font-size: 0.8rem;
+     }
+     .date-panel .MuiCalendarPicker-root {
+         /* Consider scaling or using mobile variant if needed */
+     }
+     .download-button.MuiIconButton-root {
+         width: 50px;
+         height: 50px;
+     }
+     .report-preview-panel {
+         padding: 20px !important;
+         min-height: 400px;
+     }
+     .report-title-section h1 {
+         font-size: 1.5rem;
+     }
+      .report-details {
+         font-size: 0.9rem;
+     }
+     .report-footer {
+         font-size: 0.8rem;
+     }
+}
+
+.dark-mode .date-panel .MuiPickersCalendarHeader-label {
+    color: var(--text-dark) !important; /* Try important */
+}
+
+/* Style for Day Names (S, M, T...) */
+.date-panel .MuiDayPicker-weekDayLabel {
+    color: var(--text-secondary-light);
+}
+.dark-mode .date-panel .MuiDayPicker-weekDayLabel {
+    color: var(--text-secondary-dark) !important; /* Try important */
+}
+
+/* Style for Arrow Icons */
+.date-panel .MuiPickersArrowSwitcher-button {
+    color: var(--text-secondary-light);
+}
+.dark-mode .date-panel .MuiPickersArrowSwitcher-button {
+    color: var(--text-secondary-dark) !important; /* Try important */
+}
+
+/* Style for Disabled Days */
+.date-panel .MuiPickersDay-root.Mui-disabled {
+    color: rgba(108, 117, 125, 0.5); /* Faded secondary light */
+}
+.dark-mode .date-panel .MuiPickersDay-root.Mui-disabled {
+    color: rgba(173, 181, 189, 0.5) !important; /* Try important */
+}
+
+/* Footer text inside group/sensor panels */
+.selection-count {
+  padding: 8px 16px;
+  text-align: right;
+  border-top: 1px solid var(--border-light);
+  margin-top: auto; /* Push to bottom */
+}
+.dark-mode .selection-count {
+  border-top-color: var(--border-dark);
+}
+.selection-count .MuiTypography-caption {
+  color: var(--text-secondary-light);
+}
+.dark-mode .selection-count .MuiTypography-caption {
+  color: var(--text-secondary-dark);
+}
+
+/* Footer text (Start/End Date) inside date panel */
+.dark-mode .date-panel .MuiBox-root .MuiTypography-body2 {
+  color: var(--text-secondary-dark);
+}
+
+/* Target non-selected day numbers specifically */
+.dark-mode .date-panel .MuiPickersDay-root:not(.Mui-selected) {
+    color: var(--text-dark); /* Default day color dark mode */
+}
+
+/* Target Month/Year header text more specifically */
+.dark-mode .date-panel .MuiPickersCalendarHeader-label {
+    color: var(--text-dark) !important; /* Try important */
+}
+
+/* Target Day Names (S, M, T...) specifically */
+/* Use a more specific selector targeting within DateCalendar */
+.dark-mode .date-panel .MuiDateCalendar-root .MuiDayPicker-weekDayLabel {
+    color: var(--text-dark); /* Use primary dark text color (remove !important) */
+}
+
+/* Target Arrow Icons specifically */
+.dark-mode .date-panel .MuiPickersArrowSwitcher-button {
+    color: var(--text-secondary-dark) !important; /* Try important */
+}
+
+/* Target Disabled Days specifically */
+.dark-mode .date-panel .MuiPickersDay-root.Mui-disabled {
+    color: rgba(173, 181, 189, 0.5) !important; /* Try important */
+} 

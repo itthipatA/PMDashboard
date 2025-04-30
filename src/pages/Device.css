@@ -1,0 +1,183 @@
+/* Device Page Specific Container */
+.device-page-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 48px); /* Adjust based on actual header/padding */
+}
+
+/* Header Section */
+.device-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px; /* Match container padding */
+  margin-bottom: 16px; /* Space between header and table */
+  background-color: var(--card-bg-light);
+  border-radius: 12px; /* Rounded corners for header card */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode .device-header {
+  background-color: var(--card-bg-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.device-stats span {
+  margin-right: 24px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.device-stats .online-stat {
+  color: var(--success-color);
+}
+
+.device-stats .offline-stat {
+  color: var(--danger-color);
+}
+
+.search-container .MuiTextField-root {
+  width: 300px;
+}
+
+.search-container .MuiOutlinedInput-root {
+  border-radius: 20px; /* Rounded search bar */
+  background-color: var(--bg-light); /* Match page background */
+}
+
+.dark-mode .search-container .MuiOutlinedInput-root {
+  background-color: var(--bg-dark);
+}
+
+/* Dark mode text/icon colors for search input */
+.dark-mode .search-container .MuiInputBase-input {
+  color: var(--text-dark);
+}
+.dark-mode .search-container .MuiInputBase-input::placeholder {
+  color: var(--text-secondary-dark);
+  opacity: 0.7;
+}
+.dark-mode .search-container .MuiInputAdornment-root .MuiSvgIcon-root {
+  color: var(--text-secondary-dark);
+}
+
+/* Table Section */
+.table-paper {
+  flex-grow: 1; /* Allow paper to fill remaining height */
+  border-radius: 12px !important; /* Override MUI default if needed */
+  overflow: hidden; /* Ensure content respects border-radius */
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-bg-light);
+}
+
+.dark-mode .table-paper {
+    background-color: var(--card-bg-dark);
+}
+
+.table-container {
+  flex-grow: 1;
+  overflow-y: auto; /* Enable vertical scroll */
+  overflow-x: auto; /* Add horizontal scroll */
+}
+
+/* Table Styles */
+.MuiTableHead-root .MuiTableRow-root {
+  background-color: #e9ecef; /* Light grey header from image */
+}
+
+.dark-mode .MuiTableHead-root .MuiTableRow-root {
+  background-color: #3a3f5a; /* Darker grey for dark mode */
+}
+
+.MuiTableCell-head {
+  font-weight: 600 !important;
+  color: var(--text-secondary-light) !important;
+  background-color: inherit !important; /* Inherit from row */
+  border-bottom: 1px solid var(--border-light) !important;
+}
+
+.dark-mode .MuiTableCell-head {
+    color: var(--text-secondary-dark) !important;
+    border-bottom: 1px solid var(--border-dark) !important;
+}
+
+.MuiTableCell-body {
+  font-size: 0.875rem !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  color: var(--text-light) !important;
+}
+
+.dark-mode .MuiTableCell-body {
+    border-bottom: 1px solid var(--border-dark) !important;
+    color: var(--text-dark) !important;
+}
+
+.MuiTableRow-root:last-child .MuiTableCell-body {
+  border-bottom: none !important; /* Remove border for the last row */
+}
+
+/* Status Icon */
+.status-icon {
+  font-size: 1.5rem !important; /* Adjust size as needed */
+  vertical-align: middle;
+}
+
+.status-icon.online {
+  color: var(--success-color);
+}
+
+.status-icon.offline {
+  color: var(--danger-color);
+}
+
+/* Remove generic page styles if they conflict */
+.device-page-container h1 {
+  display: none; /* Hide the generic h1 from page-container */
+}
+
+.device-page-container .page-content {
+    padding: 0;
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+  .device-header {
+    flex-direction: column;
+    align-items: stretch; /* Stretch items full width */
+    gap: 15px;
+  }
+  .device-stats {
+    display: flex;
+    justify-content: space-around; /* Space out stats */
+    text-align: center;
+  }
+   .device-stats span {
+      margin-right: 0;
+   }
+  .search-container .MuiTextField-root {
+    width: 100%; /* Full width search */
+  }
+}
+
+@media (max-width: 576px) {
+    .device-header {
+        padding: 12px;
+        border-radius: 8px;
+    }
+    .device-stats span {
+        font-size: 0.85rem;
+    }
+}
+
+/* Optional: Adjust padding/font on small screens */
+@media (max-width: 576px) {
+    .MuiTableCell-head, .MuiTableCell-body {
+        padding: 8px !important; /* Reduce padding */
+        font-size: 0.8rem !important;
+        white-space: nowrap; /* Prevent wrapping, rely on scroll */
+    }
+    .status-icon {
+        font-size: 1.2rem !important;
+    }
+} 

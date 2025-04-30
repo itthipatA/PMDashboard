@@ -1,0 +1,249 @@
+/* License Page Container */
+.license-page-container {
+  padding: 24px;
+  background-color: var(--bg-light);
+}
+
+.dark-mode .license-page-container {
+  background-color: var(--bg-dark);
+}
+
+.license-main-paper {
+  display: flex;
+  border-radius: 16px !important;
+  overflow: hidden;
+  width: 100%;
+  background-color: var(--card-bg-light) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.dark-mode .license-main-paper {
+    background-color: var(--card-bg-dark) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Left Column */
+.license-left-column {
+  width: 35%; /* Adjust width as needed */
+  padding: 32px;
+  background-color: #ffffff; /* Always white as per image */
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-light);
+}
+
+.company-logo-placeholder {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo-text-rf {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #0056b3; /* Blue color similar to image */
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+}
+
+.logo-text-rf::after {
+    content: "®";
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    right: -15px;
+}
+
+.company-logo-placeholder span:last-child {
+  margin-top: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #0056b3;
+}
+
+.system-info {
+  margin-bottom: 40px;
+}
+
+.system-info h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.system-info p {
+  font-size: 1rem;
+  color: var(--text-secondary-light);
+  margin-bottom: 4px;
+}
+
+.contact-info {
+  margin-top: auto; /* Push to bottom */
+  font-size: 0.8rem;
+  color: var(--text-secondary-light);
+  line-height: 1.5;
+}
+
+/* Right Column */
+.license-right-column {
+  width: 65%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.partner-logo-placeholder {
+  text-align: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 24px;
+}
+
+.dark-mode .partner-logo-placeholder {
+    border-bottom-color: var(--border-dark);
+}
+
+.partner-logo-placeholder img {
+  max-height: 120px; /* Increased height */
+  max-width: 250px; /* Added max-width to maintain proportion */
+  margin-bottom: 15px; /* Increased margin */
+  /* border-radius: 50%; Removed forced circle */
+  /* padding: 5px; Removed padding */
+  display: inline-block;
+  object-fit: contain; /* Ensure the image scales nicely */
+}
+
+.partner-logo-placeholder h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.dark-mode .partner-logo-placeholder h3 {
+    color: var(--text-dark);
+}
+
+.license-details-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 10px; /* Add some padding for scrollbar */
+}
+
+.license-card {
+  background-color: var(--bg-light) !important; /* Lighter background for cards */
+  padding: 16px;
+  border-radius: 8px !important;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-light);
+}
+
+.dark-mode .license-card {
+    background-color: var(--bg-dark) !important;
+    border-color: var(--border-dark);
+}
+
+.license-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-light);
+}
+
+.dark-mode .license-card h4 {
+    color: var(--text-dark);
+}
+
+.license-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary-light);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.dark-mode .license-card p {
+    color: var(--text-secondary-dark);
+}
+
+.license-card .status {
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.license-card .status.on-service {
+  color: var(--success-color);
+}
+
+.license-card .status.off-service {
+  color: var(--danger-color);
+}
+
+/* Hide generic page title */
+.license-page-container > h1 {
+  display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .license-main-paper {
+        flex-direction: column; /* Stack columns */
+    }
+    .license-left-column, .license-right-column {
+        width: 100%;
+    }
+    .license-left-column {
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+    }
+    .dark-mode .license-left-column {
+        border-bottom-color: var(--border-dark);
+    }
+    .contact-info {
+        margin-top: 20px; /* Reduce top margin */
+    }
+}
+
+@media (max-width: 576px) {
+    .license-page-container {
+        padding: 10px;
+    }
+     .license-main-paper {
+         border-radius: 12px !important;
+     }
+    .license-left-column {
+        padding: 20px;
+    }
+     .license-right-column {
+         padding: 20px;
+     }
+     .logo-text-rf {
+         font-size: 3rem;
+     }
+     .system-info h2 {
+         font-size: 1.2rem;
+     }
+     .system-info p {
+         font-size: 0.9rem;
+     }
+     .contact-info {
+         font-size: 0.75rem;
+     }
+     .partner-logo-placeholder img {
+         max-height: 60px;
+     }
+     .partner-logo-placeholder h3 {
+         font-size: 1rem;
+     }
+     .license-card {
+         padding: 12px;
+         border-radius: 6px !important;
+     }
+     .license-card h4 {
+         font-size: 0.9rem;
+     }
+     .license-card p {
+         font-size: 0.8rem;
+     }
+} 

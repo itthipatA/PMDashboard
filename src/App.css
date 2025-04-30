@@ -1,0 +1,121 @@
+:root {
+  /* Light Mode */
+  --bg-light: #f4f7fc; /* Lighter grey background */
+  --card-bg-light: #ffffff;
+  --text-light: #333333;
+  --text-secondary-light: #6c757d; /* Grey for secondary text */
+  --sidebar-light: #ffffff;
+  --border-light: #e0e0e0;
+
+  --primary-color: #0d6efd; /* Blue */
+  --secondary-color: #6c757d; /* Grey */
+  --accent-orange: #fd7e14; /* Orange for PM2.5 values */
+  --temp-color: #e83e8c; /* Pink for Temperature */
+  --success-color: #198754; /* Green */
+  --danger-color: #dc3545; /* Red */
+  /* New summary card colors */
+  --summary-max-bg: #e1d5e7; 
+  --summary-max-text: #6f42c1;
+  --summary-avg-bg: #ffe8cc;
+  --summary-avg-text: #fd7e14;
+  --summary-min-bg: #cff4fc;
+  --summary-min-text: #198754;
+  
+  /* Dark Mode */
+  --bg-dark: #1a1a2e; /* Dark blue background */
+  --card-bg-dark: #232946; /* Slightly lighter dark blue for cards */
+  --text-dark: #e0e0e0;
+  --text-secondary-dark: #adb5bd;
+  --sidebar-dark: #161625; /* Even darker blue for sidebar */
+  --border-dark: #3a3f5a;
+  /* Add dark mode equivalents if needed, or adjust existing */
+  --summary-max-bg-dark: #4b3b5f;
+  --summary-max-text-dark: #c5a8e8;
+  --summary-avg-bg-dark: #5c4632;
+  --summary-avg-text-dark: #ffcc80;
+  --summary-min-bg-dark: #2c505c;
+  --summary-min-text-dark: #76e0a5;
+
+  --min-pm-bg-dark: #224b3a;
+  --min-pm-text-dark: #63e6be;
+
+  /* New Temperature Summary Card Colors */
+  --max-temp-bg-light: #f8a0a1;
+  --max-temp-text-light: #ff5757;
+  --avg-temp-bg-light: #f8d6a2;
+  --avg-temp-text-light: #ff914d; 
+  --min-temp-bg-light: #8fd3fa;
+  --min-temp-text-light: #1c88cf;
+
+  /* Dark Mode Temperature Summary Card Colors */
+  --max-temp-bg-dark: #5c3e3e;
+  --max-temp-text-dark: #fbb8b8;
+  --avg-temp-bg-dark: #5c4e3e; 
+  --avg-temp-text-dark: #fccfae; 
+  --min-temp-bg-dark: #395164;
+  --min-temp-text-dark: #a4d9fc;
+
+  /* PM2.5 Summary Card Colors */
+  --max-pm-bg-light: #b2a7c7;
+  --max-pm-text-light: #7b649f;
+  --avg-pm-bg-light: #f8d6a2;
+  --avg-pm-text-light: #ff914d;
+  --min-pm-bg-light: #9cf1cb;
+  --min-pm-text-light: #00bf63;
+
+  /* Dark Mode PM2.5 Summary Card Colors */
+  --max-pm-bg-dark: #433e4d;
+  --max-pm-text-dark: #c5bdd7;
+  --avg-pm-bg-dark: #5c4e3e;
+  --avg-pm-text-dark: #fccfae;
+  --min-pm-bg-dark: #3b5e4d;
+  --min-pm-text-dark: #b3f5d9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  font-family: 'Roboto', 'Noto Sans Thai', sans-serif;
+  height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+.light-mode {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+.dark-mode {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.app-container {
+  display: flex;
+  height: 100%;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .content {
+    padding: 15px; 
+  }
+}
+
+@media (max-width: 576px) {
+   .content {
+     padding: 10px;
+   }
+} 
