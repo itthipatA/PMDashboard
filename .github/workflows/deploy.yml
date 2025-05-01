@@ -1,0 +1,77 @@
+# File: .github/workflows/deploy.yml
+
+# Name of the workflow shown in the GitHub Actions tab
+name: Deploy Vite Project to GitHub Pages
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push events but only for the main branch
+  push:
+    branches: ["main"] # <-- ***IMPORTANT***: Change "main" to your default branch name if it's different (e.g., master)
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+# Defines the jobs that will run in the workflow
+jobs:
+  # Job 1: Build the project
+  build:
+    # Specifies the runner environment (GitHub-hosted latest Ubuntu)
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1.1: Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout
+        uses: actions/checkout@v4 # Uses the official 'checkout' action
+
+      # Step 1.2: Sets up Node.js in the runner environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v4 # Uses the official 'setup-node' action
+        with:
+          node-version: 18 # <-- Specify the Node.js version you need (18, 20, etc.)
+          cache: 'npm' # Caches npm dependencies for faster subsequent builds
+
+      # Step 1.3: Installs dependencies using npm ci (generally preferred for CI)
+      - name: Install dependencies
+        run: npm ci # Runs this command in the runner's shell
+
+      # Step 1.4: Runs the build script defined in your package.json
+      - name: Build
+        run: npm run build # Runs your 'build' script
+
+      # Step 1.5: Configures GitHub Pages settings for the deployment
+      - name: Setup Pages
+        uses: actions/configure-pages@v5 # Uses the official 'configure-pages' action
+
+      # Step 1.6: Uploads the build output (the 'dist' folder) as a Pages artifact
+      # This artifact will be used by the 'deploy' job
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3 # Uses the official 'upload-pages-artifact' action
+        with:
+          # Uploads the contents of the directory specified here
+          path: './dist' # <-- Ensure your build output folder is named 'dist'. Change if necessary.
+
+  # Job 2: Deploy the artifact to GitHub Pages
+  deploy:
+    # Specifies the deployment environment targeted by this job
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }} # The URL of the deployed site will be set as an output
+    runs-on: ubuntu-latest
+    needs: build # This job runs only after the 'build' job completes successfully
+    steps:
+      # Step 2.1: Deploys the uploaded artifact ('github-pages') to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # Uses the official 'deploy-pages' action
