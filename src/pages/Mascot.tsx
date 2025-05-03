@@ -37,13 +37,14 @@ const Mascot: React.FC = () => {
   const [groupSearchTerm, setGroupSearchTerm] = useState('');
   const [isFullScreen, setIsFullScreen] = useState(false);
   const mainContentRef = useRef<HTMLDivElement>(null);
+  const [currentMascot, setCurrentMascot] = useState('');
+  const [pm25Level, setPm25Level] = useState<number | null>(null); // Store PM2.5 level
 
   const filteredGroups = dummyGroups.filter(group =>
     group.toLowerCase().includes(groupSearchTerm.toLowerCase())
   );
 
   // Dummy data for display
-  const currentPM25 = 12.4;
   const currentGroupName = 'หมู่บ้านอยู่ดี';
   const currentTime = '5 มีนาคม 2568 8.00 น.';
   
@@ -75,6 +76,35 @@ const Mascot: React.FC = () => {
     };
   }, []);
 
+  // Simulate fetching PM2.5 data
+  useEffect(() => {
+    // Replace with actual API call
+    const fetchPM25 = () => {
+      // Example: Random PM2.5 value for demonstration
+      const level = Math.random() * 100;
+      setPm25Level(level);
+    };
+    fetchPM25();
+    // Optionally, set an interval to refresh data
+    // const intervalId = setInterval(fetchPM25, 60000); // Fetch every minute
+    // return () => clearInterval(intervalId);
+  }, []);
+
+  useEffect(() => {
+    // Determine which mascot image to display based on pm25Level
+    let mascotImageSrc = '';
+    if (pm25Level === null) {
+      mascotImageSrc = 'Mascot-normal.png'; // Default or loading state
+    } else if (pm25Level <= 35) {
+      mascotImageSrc = 'Mascot-good.png'; // Good air quality
+    } else if (pm25Level <= 75) {
+      mascotImageSrc = 'Mascot-normal.png'; // Moderate air quality
+    } else {
+      mascotImageSrc = 'Mascot-bad.png'; // Bad air quality
+    }
+    setCurrentMascot(`${import.meta.env.BASE_URL}${mascotImageSrc}`);
+  }, [pm25Level]);
+
   return (
     <div className="page-container mascot-page-container">
       {/* Left Toolbar */}
@@ -99,12 +129,19 @@ const Mascot: React.FC = () => {
         </div>
 
         <div className="mascot-display-area">
-          <img src="/Mascot-good.png" alt="Mascot" className="mascot-image" />
+          <div className="mascot-image-wrapper">
+            {currentMascot && (
+              <img src={currentMascot} alt="Mascot" className="mascot-image" />
+            )}
+          </div>
+          {/* Conditional rendering for the leaf overlay */}
+          {pm25Level !== null && pm25Level > 0 && (
+            <img src={`${import.meta.env.BASE_URL}leaf.png`} alt="Leaf decoration" className="pm25-leaf-overlay" />
+          )}
           <div className="pm25-circle">
             <Typography variant="h6" className="pm25-label">PM2.5</Typography>
-            <Typography variant="h2" component="p" className="pm25-value">{currentPM25.toFixed(1)}</Typography>
+            <Typography variant="h2" component="p" className="pm25-value">{pm25Level !== null ? pm25Level.toFixed(1) : 'Loading...'}</Typography>
             <Typography variant="h5" className="pm25-unit">µg/m³</Typography>
-            <img src="/leaf.png" alt="Leaf decoration" className="pm25-leaf-overlay" />
           </div>
         </div>
         <Typography variant="subtitle1" className="timestamp">ตรวจวัดเมื่อ {currentTime}</Typography>

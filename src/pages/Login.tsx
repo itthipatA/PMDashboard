@@ -31,9 +31,13 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
       {/* Left Info Area - Combined into one card */}
       <div className="login-info-area">
         <Paper elevation={3} className="info-card">
-          <img src="/rf-logo.png" alt="RF Logo" className="info-logo" />
-          <Typography variant="h5" className="info-title">Smart Air Pollution</Typography>
-          <Typography variant="h5" className="info-title">Monitoring System</Typography>
+          <div className="login-left-panel">
+            <div className="login-info">
+              <img src={`${import.meta.env.BASE_URL}rf-logo.png`} alt="RF Logo" className="info-logo" />
+              <Typography variant="h4" component="h1" className="info-title">ระบบตรวจวัดคุณภาพอากาศ</Typography>
+              <Typography variant="body1" className="info-subtitle">Real time Air Quality Monitoring System</Typography>
+            </div>
+          </div>
         </Paper>
       </div>
 

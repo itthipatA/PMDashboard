@@ -14,6 +14,7 @@ import {
   Translate as TranslateIcon
 } from '@mui/icons-material';
 import './Sidebar.css';
+import { Typography } from '@mui/material';
 
 interface SidebarProps {
   onLogout: () => void;
@@ -42,37 +43,40 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <div className={`sidebar ${darkMode ? 'sidebar-dark' : 'sidebar-light'}`}>
-      <div className="sidebar-header">
-        <img src="/rf-logo.png" alt="RF Logo" className="sidebar-logo" />
-        <h2>Smart Environment monitor</h2>
-      </div>
-      
-      <div className="sidebar-menu">
-        {menuItems.map((item) => (
-          <NavLink 
-            to={item.path} 
-            key={item.name}
-            className={({ isActive }) => isActive ? 'menu-item active' : 'menu-item'}
-          >
-            <div className="menu-icon">{item.icon}</div>
-            <div className="menu-text">{item.name}</div>
-          </NavLink>
-        ))}
-      </div>
-      
-      <div className="sidebar-footer">
-        <button className="footer-button" onClick={toggleDarkMode}>
-          {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
-        </button>
+      <div className="sidebar-content">
+        {/* Logo and Title */}
+        <div className="sidebar-header">
+          <img src={`${import.meta.env.BASE_URL}rf-logo.png`} alt="RF Logo" className="sidebar-logo" />
+          <Typography variant="h6" component="h1" className="sidebar-title">ระบบตรวจวัดคุณภาพอากาศ</Typography>
+        </div>
         
-        <button className="footer-button" onClick={toggleLanguage}>
-          <TranslateIcon />
-          <span>{language.toUpperCase()}</span>
-        </button>
+        <div className="sidebar-menu">
+          {menuItems.map((item) => (
+            <NavLink 
+              to={item.path} 
+              key={item.name}
+              className={({ isActive }) => isActive ? 'menu-item active' : 'menu-item'}
+            >
+              <div className="menu-icon">{item.icon}</div>
+              <div className="menu-text">{item.name}</div>
+            </NavLink>
+          ))}
+        </div>
         
-        <button className="footer-button" onClick={onLogout}>
-          <LogoutIcon />
-        </button>
+        <div className="sidebar-footer">
+          <button className="footer-button" onClick={toggleDarkMode}>
+            {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
+          </button>
+          
+          <button className="footer-button" onClick={toggleLanguage}>
+            <TranslateIcon />
+            <span>{language.toUpperCase()}</span>
+          </button>
+          
+          <button className="footer-button" onClick={onLogout}>
+            <LogoutIcon />
+          </button>
+        </div>
       </div>
     </div>
   );

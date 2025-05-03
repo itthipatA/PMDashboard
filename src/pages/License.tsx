@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper } from '@mui/material'; // Use Paper for card elements
+import { Paper, Grid, Typography } from '@mui/material'; // Use Paper for card elements
 import './License.css'; // Use specific CSS for this page
 
 // Sample data for license details
@@ -72,7 +72,7 @@ const License: React.FC = () => {
         <div className="license-right-column">
           <div className="partner-logo-placeholder">
             {/* Placeholder for partner logo */} 
-            <img src="/Partner-logo.png" alt="Partner Logo"/> 
+            <img src={`${import.meta.env.BASE_URL}Partner-logo.png`} alt="Partner Logo"/> 
             <h3>สำนักงานเขตบางกะปิ</h3>
           </div>
           <div className="license-details-container">
