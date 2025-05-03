@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Grid, Typography } from '@mui/material'; // Use Paper for card elements
+import { Paper } from '@mui/material'; // Use Paper for card elements
 import './License.css'; // Use specific CSS for this page
 
 // Sample data for license details
