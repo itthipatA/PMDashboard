@@ -59,12 +59,12 @@
 
 /* Style for the standalone map card on Map page */
 .map-card-standalone {
-    padding: 0 !important; 
-    overflow: hidden; 
-    /* height: 650px; Remove fixed height */
-    display: flex; 
-    flex-grow: 1; /* Make the card fill the page-content */
-    /* Inherits other info-card styles like background, border-radius, shadow */
+  padding: 0 !important;
+  overflow: hidden;
+  /* height: 650px; Remove fixed height */
+  display: flex;
+  flex-grow: 1; /* Make the card fill the page-content */
+  /* Inherits other info-card styles like background, border-radius, shadow */
 }
 
 /* Remove old placeholder styles */

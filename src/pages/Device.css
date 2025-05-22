@@ -72,7 +72,7 @@
 }
 
 .dark-mode .table-paper {
-    background-color: var(--card-bg-dark);
+  background-color: var(--card-bg-dark);
 }
 
 .table-container {
@@ -98,8 +98,8 @@
 }
 
 .dark-mode .MuiTableCell-head {
-    color: var(--text-secondary-dark) !important;
-    border-bottom: 1px solid var(--border-dark) !important;
+  color: var(--text-secondary-dark) !important;
+  border-bottom: 1px solid var(--border-dark) !important;
 }
 
 .MuiTableCell-body {
@@ -109,8 +109,8 @@
 }
 
 .dark-mode .MuiTableCell-body {
-    border-bottom: 1px solid var(--border-dark) !important;
-    color: var(--text-dark) !important;
+  border-bottom: 1px solid var(--border-dark) !important;
+  color: var(--text-dark) !important;
 }
 
 .MuiTableRow-root:last-child .MuiTableCell-body {
@@ -137,7 +137,7 @@
 }
 
 .device-page-container .page-content {
-    padding: 0;
+  padding: 0;
 }
 
 /* Responsive Header */
@@ -152,32 +152,33 @@
     justify-content: space-around; /* Space out stats */
     text-align: center;
   }
-   .device-stats span {
-      margin-right: 0;
-   }
+  .device-stats span {
+    margin-right: 0;
+  }
   .search-container .MuiTextField-root {
     width: 100%; /* Full width search */
   }
 }
 
 @media (max-width: 576px) {
-    .device-header {
-        padding: 12px;
-        border-radius: 8px;
-    }
-    .device-stats span {
-        font-size: 0.85rem;
-    }
+  .device-header {
+    padding: 12px;
+    border-radius: 8px;
+  }
+  .device-stats span {
+    font-size: 0.85rem;
+  }
 }
 
 /* Optional: Adjust padding/font on small screens */
 @media (max-width: 576px) {
-    .MuiTableCell-head, .MuiTableCell-body {
-        padding: 8px !important; /* Reduce padding */
-        font-size: 0.8rem !important;
-        white-space: nowrap; /* Prevent wrapping, rely on scroll */
-    }
-    .status-icon {
-        font-size: 1.2rem !important;
-    }
-} 
+  .MuiTableCell-head,
+  .MuiTableCell-body {
+    padding: 8px !important; /* Reduce padding */
+    font-size: 0.8rem !important;
+    white-space: nowrap; /* Prevent wrapping, rely on scroll */
+  }
+  .status-icon {
+    font-size: 1.2rem !important;
+  }
+}

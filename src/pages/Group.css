@@ -5,7 +5,7 @@
   gap: 16px; /* Gap between panels */
   padding: 16px;
   height: calc(100vh - 48px); /* Adjust based on actual header/padding */
-  background-color: var(--bg-light); 
+  background-color: var(--bg-light);
 }
 
 .dark-mode .group-page-container {
@@ -20,12 +20,12 @@
   display: flex;
   flex-direction: column;
   overflow: hidden; /* Prevent content overflow */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .dark-mode .panel {
-    background-color: var(--card-bg-dark);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  background-color: var(--card-bg-dark);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Specific Panel Widths */
@@ -37,7 +37,7 @@
 
 .map-device-panel {
   /* Remove this or rename if needed */
-  /* flex-grow: 1; */ 
+  /* flex-grow: 1; */
 }
 
 /* Panel Header Bar */
@@ -55,7 +55,9 @@
 
 .panel-title-bar h6 {
   /* color: var(--primary-color) !important; */ /* Removed */
-  color: var(--text-light) !important; /* Use primary text color for light mode */
+  color: var(
+    --text-light
+  ) !important; /* Use primary text color for light mode */
   font-weight: 600 !important;
   text-align: center;
 }
@@ -72,12 +74,12 @@
 }
 
 .search-input .MuiOutlinedInput-root {
-  border-radius: 20px !important; 
+  border-radius: 20px !important;
   background-color: var(--bg-light);
 }
 
 .dark-mode .search-input .MuiOutlinedInput-root {
-    background-color: var(--bg-dark);
+  background-color: var(--bg-dark);
 }
 
 /* Ensure input text color is correct in dark mode */
@@ -109,8 +111,8 @@
 }
 
 .dark-mode .list-header-card {
-    background-color: #3a3f5a !important;
-    color: var(--text-secondary-dark) !important;
+  background-color: #3a3f5a !important;
+  color: var(--text-secondary-dark) !important;
 }
 
 /* Scrollable List */
@@ -129,7 +131,7 @@
 }
 
 .dark-mode .list-item.MuiListItemButton-root {
-    border-bottom-color: var(--border-dark);
+  border-bottom-color: var(--border-dark);
 }
 
 .list-item:last-child {
@@ -145,34 +147,46 @@
 }
 
 .dark-mode .list-item .MuiListItemText-primary {
-    color: var(--text-dark);
+  color: var(--text-dark);
 }
 
 .list-item.Mui-selected {
-    background-color: rgba(17, 112, 227, 0.1) !important; /* Light blue selection */
+  background-color: rgba(
+    17,
+    112,
+    227,
+    0.1
+  ) !important; /* Light blue selection */
 }
 
 .dark-mode .list-item.Mui-selected {
-    background-color: rgba(17, 112, 227, 0.2) !important; /* Slightly darker blue selection for dark mode */
+  background-color: rgba(
+    17,
+    112,
+    227,
+    0.2
+  ) !important; /* Slightly darker blue selection for dark mode */
 }
 
 .list-item.Mui-selected .MuiListItemText-primary {
-    font-weight: 600;
-    /* color: var(--primary-color) !important; */ /* Removed */
-    color: var(--text-light) !important; /* Use primary text color for light mode */
+  font-weight: 600;
+  /* color: var(--primary-color) !important; */ /* Removed */
+  color: var(
+    --text-light
+  ) !important; /* Use primary text color for light mode */
 }
 
 .dark-mode .list-item.Mui-selected .MuiListItemText-primary {
-    color: var(--text-dark) !important; /* Use primary dark color for dark mode */
+  color: var(--text-dark) !important; /* Use primary dark color for dark mode */
 }
 
 /* Map & Device Panel Specifics */
 .map-container {
-  height: 100%; 
+  height: 100%;
   flex-shrink: 0;
   /* background-color: #eee; Remove placeholder color */
   /* Ensure no padding if needed, although parent panel should handle it */
-  padding: 0; 
+  padding: 0;
 }
 
 .device-details-container {
@@ -194,8 +208,8 @@
 }
 
 .dark-mode .device-list-title {
-   border-bottom-color: var(--border-dark);
-   color: var(--text-dark);
+  border-bottom-color: var(--border-dark);
+  color: var(--text-dark);
 }
 
 .device-list-title .MuiTypography-caption {
@@ -236,8 +250,12 @@
   margin-right: 12px;
   flex-shrink: 0;
 }
-.status-dot.good { background-color: var(--success-color); }
-.status-dot.unhealthy { background-color: var(--danger-color); }
+.status-dot.good {
+  background-color: var(--success-color);
+}
+.status-dot.unhealthy {
+  background-color: var(--danger-color);
+}
 
 .device-info {
   flex-grow: 1;
@@ -251,13 +269,17 @@
   color: var(--text-light);
   margin-bottom: 2px;
 }
-.dark-mode .device-name { color: var(--text-dark); }
+.dark-mode .device-name {
+  color: var(--text-dark);
+}
 
 .device-details {
   font-size: 0.8rem;
   color: var(--text-secondary-light);
 }
-.dark-mode .device-details { color: var(--text-secondary-dark); }
+.dark-mode .device-details {
+  color: var(--text-secondary-dark);
+}
 
 .device-readings {
   display: flex;
@@ -267,9 +289,12 @@
   color: var(--text-secondary-light);
   flex-shrink: 0;
 }
-.dark-mode .device-readings { color: var(--text-secondary-dark); }
+.dark-mode .device-readings {
+  color: var(--text-secondary-dark);
+}
 
-.device-temp, .device-battery {
+.device-temp,
+.device-battery {
   display: flex;
   align-items: center;
 }
@@ -280,21 +305,22 @@
 }
 
 /* New styles for the right column structure */
-.center-column-container { /* Renamed from right-column-container */
+.center-column-container {
+  /* Renamed from right-column-container */
   display: flex;
   flex-direction: column;
-  gap: 16px; 
-  flex-grow: 1; 
-  overflow: hidden; 
+  gap: 16px;
+  flex-grow: 1;
+  overflow: hidden;
 }
 
 .map-panel {
-  height: 45%; 
+  height: 45%;
   flex-shrink: 0;
 }
 
 .device-panel {
-  flex-grow: 1; 
+  flex-grow: 1;
 }
 
 .device-details-container {
@@ -303,34 +329,34 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 /* New Summary Panel */
 .summary-panel {
   width: 250px; /* Match group/sensor panel width */
   flex-shrink: 0;
-  padding: 16px; 
-  gap: 16px; 
-  align-items: stretch; 
+  padding: 16px;
+  gap: 16px;
+  align-items: stretch;
   /* Inherits .panel styles */
 }
 
 .summary-header {
-    text-align: center;
-    color: var(--text-secondary-light);
-    font-weight: 600 !important;
-    margin-bottom: 8px;
-    /* margin-top: 16px; */
+  text-align: center;
+  color: var(--text-secondary-light);
+  font-weight: 600 !important;
+  margin-bottom: 8px;
+  /* margin-top: 16px; */
 }
 .dark-mode .summary-header {
-    color: var(--text-secondary-dark);
+  color: var(--text-secondary-dark);
 }
 
 .summary-cards-group {
-    display: flex;
-    flex-direction: column;
-    gap: 12px; /* Gap between summary cards */
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Gap between summary cards */
 }
 
 /* Style for the selected group/sensor info box */
@@ -350,55 +376,93 @@
     margin-bottom: 16px;
     max-height: 60vh; /* Limit height */
   }
-  .center-column-container { /* Keep map/device first */
-     order: -1; 
-     gap: 16px; 
-     flex-grow: 0; 
+  .center-column-container {
+    /* Keep map/device first */
+    order: -1;
+    gap: 16px;
+    flex-grow: 0;
   }
-  .summary-panel { 
+  .summary-panel {
     order: 3; /* Summary panel stacks last */
-    max-height: none; 
+    max-height: none;
   }
   .map-panel {
-     height: 300px; /* Keep fixed height */
-     max-height: none; /* Remove max height */
-   }
-   .device-panel {
-       max-height: 40vh; /* Limit device panel height */
-       min-height: 250px; /* Ensure some space */
-   }
-   .scrollable-list {
-     /* max-height: 30vh; */ 
-   }
-    .device-summary-list {
-        /* max-height: 250px; */
-    }
+    height: 300px; /* Keep fixed height */
+    max-height: none; /* Remove max height */
+  }
+  .device-panel {
+    max-height: 40vh; /* Limit device panel height */
+    min-height: 250px; /* Ensure some space */
+  }
+  .scrollable-list {
+    /* max-height: 30vh; */
+  }
+  .device-summary-list {
+    /* max-height: 250px; */
+  }
 }
 
 @media (max-width: 768px) {
-    .group-page-container { padding: 10px; gap: 10px; }
-    .panel { border-radius: 12px !important; }
-    .panel-title-bar { padding: 8px 12px; }
-    .search-input { margin: 8px 12px !important; }
-    .list-header-card { padding: 6px 12px !important; margin: 0 12px 6px 12px !important; }
-    .scrollable-list { padding: 0 4px 4px 4px !important; }
-    .list-item.MuiListItemButton-root { padding: 4px 10px !important; }
-    .list-item .MuiListItemText-primary { font-size: 0.8rem; }
-    .device-details-container { padding: 10px 12px; }
-    .device-list-title { margin-bottom: 6px; padding-bottom: 6px;}
-    .device-summary-item { padding: 8px 0; flex-wrap: wrap; } /* Allow wrapping */
-    .device-readings { width: 100%; margin-top: 5px; justify-content: flex-end; }
-    .center-column-container {
-      gap: 10px;
-    }
-    .map-panel {
-        height: 250px; /* Smaller map height */
-    }
-    .device-panel {
-        max-height: 35vh; /* Further limit */
-        min-height: 200px;
-    }
-    .summary-panel { padding: 12px; gap: 12px; } 
-    .summary-header { margin-bottom: 6px; }
-    .summary-cards-group { gap: 10px; }
-} 
+  .group-page-container {
+    padding: 10px;
+    gap: 10px;
+  }
+  .panel {
+    border-radius: 12px !important;
+  }
+  .panel-title-bar {
+    padding: 8px 12px;
+  }
+  .search-input {
+    margin: 8px 12px !important;
+  }
+  .list-header-card {
+    padding: 6px 12px !important;
+    margin: 0 12px 6px 12px !important;
+  }
+  .scrollable-list {
+    padding: 0 4px 4px 4px !important;
+  }
+  .list-item.MuiListItemButton-root {
+    padding: 4px 10px !important;
+  }
+  .list-item .MuiListItemText-primary {
+    font-size: 0.8rem;
+  }
+  .device-details-container {
+    padding: 10px 12px;
+  }
+  .device-list-title {
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+  }
+  .device-summary-item {
+    padding: 8px 0;
+    flex-wrap: wrap;
+  } /* Allow wrapping */
+  .device-readings {
+    width: 100%;
+    margin-top: 5px;
+    justify-content: flex-end;
+  }
+  .center-column-container {
+    gap: 10px;
+  }
+  .map-panel {
+    height: 250px; /* Smaller map height */
+  }
+  .device-panel {
+    max-height: 35vh; /* Further limit */
+    min-height: 200px;
+  }
+  .summary-panel {
+    padding: 12px;
+    gap: 12px;
+  }
+  .summary-header {
+    margin-bottom: 6px;
+  }
+  .summary-cards-group {
+    gap: 10px;
+  }
+}

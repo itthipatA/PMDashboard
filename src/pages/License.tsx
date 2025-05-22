@@ -16,7 +16,8 @@ interface LicenseDetail {
 const licenseData: LicenseDetail[] = [
   {
     id: 1,
-    title: 'โครงการตรวจวัดและติดตามคุณภาพฝุ่นละออง PM2.5 เพื่อการป้องกันและควบคุมมลพิษทางอากาศ ปี 2568',
+    title:
+      'โครงการตรวจวัดและติดตามคุณภาพฝุ่นละออง PM2.5 เพื่อการป้องกันและควบคุมมลพิษทางอากาศ ปี 2568',
     contractNo: '1230850384',
     period: '1 มกราคม 2568 - 30 มกราคม 2571',
     licenseKey: '3YLMSP',
@@ -25,7 +26,8 @@ const licenseData: LicenseDetail[] = [
   },
   {
     id: 2,
-    title: 'โครงการจัดการและลดมลพิษจากฝุ่นละอองขนาดเล็ก PM2.5 เพื่อคุณภาพชีวิตที่ดีขึ้นในชุมชน ปี 2567',
+    title:
+      'โครงการจัดการและลดมลพิษจากฝุ่นละอองขนาดเล็ก PM2.5 เพื่อคุณภาพชีวิตที่ดีขึ้นในชุมชน ปี 2567',
     contractNo: '1230858281',
     period: '1 ตุลาคม 2567 - 31 ตุลาคม 2570',
     licenseKey: '3YLMSP67',
@@ -34,7 +36,8 @@ const licenseData: LicenseDetail[] = [
   },
   {
     id: 3,
-    title: 'โครงการจัดการและลดมลพิษจากฝุ่นละอองขนาดเล็ก PM2.5 เพื่อคุณภาพชีวิตที่ดีขึ้นในชุมชน ปี 2565',
+    title:
+      'โครงการจัดการและลดมลพิษจากฝุ่นละอองขนาดเล็ก PM2.5 เพื่อคุณภาพชีวิตที่ดีขึ้นในชุมชน ปี 2565',
     contractNo: '1230858281',
     period: '1 กันยายน 2566 - 30 กันยายน 2567',
     licenseKey: '1YLMSP66',
@@ -63,7 +66,10 @@ const License: React.FC = () => {
             <p>Application Co., Ltd</p>
             <p>15, Soi Hua Mak 9, Hua Mak Subdistrict,</p>
             <p>Bang Kapi District, Bangkok 10240</p>
-            <p>Tel : 0-2732-3319, 02-732-3372, 02-732-3373 Fax : 0-2732-2290 www.rf.co.th</p>
+            <p>
+              Tel : 0-2732-3319, 02-732-3372, 02-732-3373 Fax : 0-2732-2290
+              www.rf.co.th
+            </p>
             <p>E-mail : info@rf.co.th, info@rfapplication.co.th</p>
           </div>
         </div>
@@ -71,8 +77,11 @@ const License: React.FC = () => {
         {/* Right Column */}
         <div className="license-right-column">
           <div className="partner-logo-placeholder">
-            {/* Placeholder for partner logo */} 
-            <img src={`${import.meta.env.BASE_URL}Partner-logo.png`} alt="Partner Logo"/> 
+            {/* Placeholder for partner logo */}
+            <img
+              src={`${import.meta.env.BASE_URL}Partner-logo.png`}
+              alt="Partner Logo"
+            />
             <h3>สำนักงานเขตบางกะปิ</h3>
           </div>
           <div className="license-details-container">
@@ -83,8 +92,11 @@ const License: React.FC = () => {
                 <p>ระยะเวลา: {license.period}</p>
                 <p>License: {license.licenseKey}</p>
                 <p>Device Support: {license.deviceSupport}</p>
-                <p className={`status ${license.status === 'on' ? 'on-service' : 'off-service'}`}>
-                  STATUS {license.status === 'on' ? 'ON SERVICE' : 'OFF SERVICE'}
+                <p
+                  className={`status ${license.status === 'on' ? 'on-service' : 'off-service'}`}
+                >
+                  STATUS{' '}
+                  {license.status === 'on' ? 'ON SERVICE' : 'OFF SERVICE'}
                 </p>
               </Paper>
             ))}

@@ -3,7 +3,11 @@
   display: flex;
   height: 100vh; /* Full viewport height */
   padding: 0; /* Remove default padding */
-  background: linear-gradient(to bottom, #afeafa, #ffffff); /* Light mode gradient */
+  background: linear-gradient(
+    to bottom,
+    #afeafa,
+    #ffffff
+  ); /* Light mode gradient */
   overflow: hidden; /* Prevent scrollbars on main container */
   position: relative; /* For absolute positioning if needed */
   border-radius: 16px; /* Added border radius for rounded corners */
@@ -11,7 +15,11 @@
 
 /* Dark Mode Specific Gradient */
 .dark-mode .mascot-page-container {
-  background: linear-gradient(to bottom, #4a6179, var(--bg-dark)); /* Brighter dark mode gradient */
+  background: linear-gradient(
+    to bottom,
+    #4a6179,
+    var(--bg-dark)
+  ); /* Brighter dark mode gradient */
 }
 
 /* Left Toolbar */
@@ -34,8 +42,8 @@
 }
 
 .dark-mode .mascot-toolbar {
-    background-color: var(--card-bg-dark);
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  background-color: var(--card-bg-dark);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .toolbar-button.MuiIconButton-root {
@@ -43,7 +51,9 @@
   color: white;
   width: 50px;
   height: 50px;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .toolbar-button.MuiIconButton-root:hover {
@@ -79,32 +89,36 @@
 
 /* Override fullscreen background for dark mode */
 .dark-mode .mascot-main-content:fullscreen {
-  background: linear-gradient(to bottom, #4a6179, var(--bg-dark)); /* Brighter dark mode gradient */
+  background: linear-gradient(
+    to bottom,
+    #4a6179,
+    var(--bg-dark)
+  ); /* Brighter dark mode gradient */
 }
 
 .welcome-text {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .welcome-text .MuiTypography-h4,
 .welcome-text .MuiTypography-h5 {
-    color: #333; /* Dark text on light background */
-    font-weight: 600;
-    margin-bottom: 8px;
+  color: #333; /* Dark text on light background */
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .dark-mode .welcome-text .MuiTypography-h4,
 .dark-mode .welcome-text .MuiTypography-h5 {
-    color: var(--text-dark);
+  color: var(--text-dark);
 }
 
 .welcome-text .highlight-text {
-    color: #0b5ed7; /* Darker blue highlight */
-    font-weight: bold;
+  color: #0b5ed7; /* Darker blue highlight */
+  font-weight: bold;
 }
 
 .dark-mode .welcome-text .highlight-text {
-    color: #61dafb; /* Lighter blue for dark mode */
+  color: #61dafb; /* Lighter blue for dark mode */
 }
 
 .mascot-display-area {
@@ -128,16 +142,16 @@
   /* color: #999; */
   /* font-size: 1rem; */
   /* text-align: center; */
-  /* aspect-ratio: 1 / 1; */ 
+  /* aspect-ratio: 1 / 1; */
   /* border-radius: 10px; */
   /* padding: 20px; */
 }
 
 .dark-mode .mascot-image {
-    /* Remove dark mode placeholder styles as well */
-    /* background-color: #444; */
-    /* border-color: #666; */
-    /* color: #ccc; */
+  /* Remove dark mode placeholder styles as well */
+  /* background-color: #444; */
+  /* border-color: #666; */
+  /* color: #ccc; */
 }
 
 .pm25-circle {
@@ -145,7 +159,11 @@
   height: 250px;
   border-radius: 50%;
   /* background-color: white; */ /* Replaced with gradient */
-  background: linear-gradient(to top right, #afeafa, #ffffff); /* Changed blue to #afeafa */
+  background: linear-gradient(
+    to top right,
+    #afeafa,
+    #ffffff
+  ); /* Changed blue to #afeafa */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -157,25 +175,35 @@
 }
 
 .dark-mode .pm25-circle {
-    /* background-color: var(--card-bg-dark); */ /* Original dark background */
-    background: linear-gradient(to top right, #5c9ead, var(--card-bg-dark)); /* Brighter dark mode gradient */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  /* background-color: var(--card-bg-dark); */ /* Original dark background */
+  background: linear-gradient(
+    to top right,
+    #5c9ead,
+    var(--card-bg-dark)
+  ); /* Brighter dark mode gradient */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .pm25-label {
   /* color: var(--primary-color) !important; */ /* Removed default color */
-  color: var(--text-secondary-light) !important; /* Use secondary text color for light mode */
+  color: var(
+    --text-secondary-light
+  ) !important; /* Use secondary text color for light mode */
   font-weight: 600 !important;
   margin-bottom: 5px !important;
 }
 
 .dark-mode .pm25-label {
-  color: var(--text-secondary-dark) !important; /* Use secondary dark color for dark mode */
+  color: var(
+    --text-secondary-dark
+  ) !important; /* Use secondary dark color for dark mode */
 }
 
 .pm25-value {
   /* color: var(--primary-color) !important; */ /* Removed default color */
-  color: var(--text-light) !important; /* Use primary text color for light mode */
+  color: var(
+    --text-light
+  ) !important; /* Use primary text color for light mode */
   font-weight: bold !important;
   line-height: 1 !important;
 }
@@ -190,7 +218,7 @@
 }
 
 .dark-mode .pm25-unit {
-    color: var(--text-secondary-dark) !important;
+  color: var(--text-secondary-dark) !important;
 }
 
 .timestamp {
@@ -200,15 +228,15 @@
 }
 
 .dark-mode .timestamp {
-    color: var(--text-secondary-dark) !important;
+  color: var(--text-secondary-dark) !important;
 }
 
 /* Style for the overlay leaf */
 .pm25-leaf-overlay {
   position: absolute;
   bottom: 15px; /* Adjust as needed */
-  right: -10px;  /* Decreased value to move more to the right */
-  width: 60px;   /* Adjust size as needed */
+  right: -10px; /* Decreased value to move more to the right */
+  width: 60px; /* Adjust size as needed */
   height: auto;
   z-index: 0; /* Ensure it's behind text (if text needed z-index > 0) */
 }
@@ -228,12 +256,14 @@
 }
 
 .dark-mode .mascot-group-panel {
-    background-color: var(--card-bg-dark) !important;
+  background-color: var(--card-bg-dark) !important;
 }
 
 .group-header {
   /* color: var(--primary-color) !important; */ /* Removed default color */
-  color: var(--text-light) !important; /* Use primary text color for light mode */
+  color: var(
+    --text-light
+  ) !important; /* Use primary text color for light mode */
   font-weight: 600 !important;
   margin-bottom: 10px !important;
   text-align: center;
@@ -253,7 +283,7 @@
 }
 
 .dark-mode .group-search-bar .MuiOutlinedInput-root {
-    background-color: var(--bg-dark);
+  background-color: var(--bg-dark);
 }
 
 /* Ensure input text color is correct in dark mode */
@@ -279,37 +309,37 @@
 }
 
 .group-list-item.MuiListItem-root {
-    padding-top: 8px !important;
-    padding-bottom: 8px !important;
-    border-bottom: 1px solid var(--border-light);
-    border-radius: 8px;
-    margin-bottom: 4px;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid var(--border-light);
+  border-radius: 8px;
+  margin-bottom: 4px;
 }
 
 .dark-mode .group-list-item.MuiListItem-root {
-    border-bottom: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
 }
 
 .group-list-item:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .group-list-item:hover {
-    background-color: rgba(13, 110, 253, 0.05);
+  background-color: rgba(13, 110, 253, 0.05);
 }
 
 .dark-mode .group-list-item:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .group-list-item .MuiListItemText-primary {
-    font-size: 0.9rem;
-    color: var(--text-secondary-light);
-    font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text-secondary-light);
+  font-weight: 500;
 }
 
 .dark-mode .group-list-item .MuiListItemText-primary {
-    color: var(--text-secondary-dark);
+  color: var(--text-secondary-dark);
 }
 
 /* Hide generic page title */
@@ -319,88 +349,88 @@
 
 /* Responsive Styles */
 @media (max-width: 1200px) {
-    .mascot-group-panel {
-        width: 240px; /* Slightly smaller panel */
-    }
+  .mascot-group-panel {
+    width: 240px; /* Slightly smaller panel */
+  }
 }
 
 @media (max-width: 992px) {
-    .mascot-page-container {
-        flex-direction: column; /* Stack everything */
-        height: auto; /* Allow height to adjust */
-        overflow-y: auto; /* Allow scrolling for the page */
-    }
-    .mascot-toolbar {
-        position: static; /* Change from absolute */
-        transform: none; /* Remove vertical centering */
-        flex-direction: row; /* Buttons horizontal */
-        justify-content: center;
-        width: 100%;
-        padding: 10px 15px;
-        border-radius: 0; /* Remove radius */
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        order: 1; /* Toolbar at the top */
-        height: auto;
-        gap: 15px;
-    }
-     .toolbar-button.MuiIconButton-root {
-         width: 40px;
-         height: 40px;
-     }
+  .mascot-page-container {
+    flex-direction: column; /* Stack everything */
+    height: auto; /* Allow height to adjust */
+    overflow-y: auto; /* Allow scrolling for the page */
+  }
+  .mascot-toolbar {
+    position: static; /* Change from absolute */
+    transform: none; /* Remove vertical centering */
+    flex-direction: row; /* Buttons horizontal */
+    justify-content: center;
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 0; /* Remove radius */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    order: 1; /* Toolbar at the top */
+    height: auto;
+    gap: 15px;
+  }
+  .toolbar-button.MuiIconButton-root {
+    width: 40px;
+    height: 40px;
+  }
 
-    .mascot-main-content {
-        padding: 20px; /* Reset padding */
-        order: 2; /* Main content below toolbar */
-    }
-     .mascot-display-area {
-         flex-direction: column; /* Stack mascot and circle */
-         gap: 25px;
-         margin-bottom: 25px;
-     }
-     .mascot-image {
-         max-width: 200px;
-     }
-     .pm25-circle {
-         width: 200px;
-         height: 200px;
-     }
-     .pm25-value {
-         font-size: 3rem !important;
-     }
-     .pm25-unit {
-         font-size: 1.1rem !important;
-     }
+  .mascot-main-content {
+    padding: 20px; /* Reset padding */
+    order: 2; /* Main content below toolbar */
+  }
+  .mascot-display-area {
+    flex-direction: column; /* Stack mascot and circle */
+    gap: 25px;
+    margin-bottom: 25px;
+  }
+  .mascot-image {
+    max-width: 200px;
+  }
+  .pm25-circle {
+    width: 200px;
+    height: 200px;
+  }
+  .pm25-value {
+    font-size: 3rem !important;
+  }
+  .pm25-unit {
+    font-size: 1.1rem !important;
+  }
 
-    .mascot-group-panel {
-        width: calc(100% - 40px); /* Near full width */
-        margin: 0 auto 20px auto; /* Center panel */
-        order: 3; /* Panel at the bottom */
-        height: auto; /* Adjust height */
-        max-height: 40vh; /* Limit height */
-    }
+  .mascot-group-panel {
+    width: calc(100% - 40px); /* Near full width */
+    margin: 0 auto 20px auto; /* Center panel */
+    order: 3; /* Panel at the bottom */
+    height: auto; /* Adjust height */
+    max-height: 40vh; /* Limit height */
+  }
 }
 
 @media (max-width: 576px) {
-     .welcome-text .MuiTypography-h4 {
-         font-size: 1.5rem;
-     }
-      .welcome-text .MuiTypography-h5 {
-         font-size: 1.1rem;
-     }
-     .mascot-image {
-         max-width: 150px;
-     }
-     .pm25-circle {
-         width: 180px;
-         height: 180px;
-     }
-     .pm25-value {
-         font-size: 2.5rem !important;
-     }
-     .mascot-group-panel {
-         width: calc(100% - 30px);
-     }
-     .group-list-item .MuiListItemText-primary {
-         font-size: 0.8rem;
-     }
-} 
+  .welcome-text .MuiTypography-h4 {
+    font-size: 1.5rem;
+  }
+  .welcome-text .MuiTypography-h5 {
+    font-size: 1.1rem;
+  }
+  .mascot-image {
+    max-width: 150px;
+  }
+  .pm25-circle {
+    width: 180px;
+    height: 180px;
+  }
+  .pm25-value {
+    font-size: 2.5rem !important;
+  }
+  .mascot-group-panel {
+    width: calc(100% - 30px);
+  }
+  .group-list-item .MuiListItemText-primary {
+    font-size: 0.8rem;
+  }
+}

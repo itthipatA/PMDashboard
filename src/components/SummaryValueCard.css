@@ -6,7 +6,7 @@
 }
 
 .summary-value-card:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .summary-card-title {
@@ -17,9 +17,9 @@
 }
 
 .summary-card-value-container {
-    display: flex;
-    align-items: baseline;
-    gap: 5px;
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
 }
 
 .summary-card-value {
@@ -103,9 +103,9 @@
 
 /* Adjust unit color in dark mode */
 .dark-mode .summary-value-card .summary-card-unit {
-    color: var(--text-secondary-dark) !important;
+  color: var(--text-secondary-dark) !important;
 }
 /* Adjust title color in dark mode */
 .dark-mode .summary-value-card .summary-card-title {
-    color: var(--text-secondary-dark) !important;
-} 
+  color: var(--text-secondary-dark) !important;
+}

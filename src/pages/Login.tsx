@@ -3,7 +3,7 @@ import {
   TextField,
   Button,
   Typography,
-  Paper // Use Paper for the containers
+  Paper, // Use Paper for the containers
 } from '@mui/material';
 import './Login.css';
 
@@ -33,9 +33,17 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
         <Paper elevation={3} className="info-card">
           <div className="login-left-panel">
             <div className="login-info">
-              <img src={`${import.meta.env.BASE_URL}rf-logo.png`} alt="RF Logo" className="info-logo" />
-              <Typography variant="h4" component="h1" className="info-title">ระบบตรวจวัดคุณภาพอากาศ</Typography>
-              <Typography variant="body1" className="info-subtitle">Real time Air Quality Monitoring System</Typography>
+              <img
+                src={`${import.meta.env.BASE_URL}rf-logo.png`}
+                alt="RF Logo"
+                className="info-logo"
+              />
+              <Typography variant="h4" component="h1" className="info-title">
+                ระบบตรวจวัดคุณภาพอากาศ
+              </Typography>
+              <Typography variant="body1" className="info-subtitle">
+                Real time Air Quality Monitoring System
+              </Typography>
             </div>
           </div>
         </Paper>
@@ -43,10 +51,16 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
 
       {/* Right Login Form Area (Circle) */}
       <Paper elevation={5} className="login-form-circle">
-        <Typography variant="h4" component="h1" className="login-title">LOGIN</Typography>
+        <Typography variant="h4" component="h1" className="login-title">
+          LOGIN
+        </Typography>
         <form onSubmit={handleSubmit} className="login-form">
-          {error && <div className="error-message">{error}</div>} 
-          
+          {error && (
+            <div className="error-message" role="alert">
+              {error}
+            </div>
+          )}
+
           <TextField
             label="Username"
             variant="standard" // Underline only
@@ -56,7 +70,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
             required
             className="login-input"
           />
-          
+
           <TextField
             label="Password"
             type="password"
@@ -67,12 +81,8 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
             required
             className="login-input"
           />
-          
-          <Button 
-            type="submit" 
-            variant="contained" 
-            className="login-button"
-          >
+
+          <Button type="submit" variant="contained" className="login-button">
             LOGIN
           </Button>
         </form>
@@ -81,4 +91,4 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
   );
 };
 
-export default Login; 
+export default Login;

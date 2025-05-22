@@ -18,8 +18,8 @@
 }
 
 .dark-mode .license-main-paper {
-    background-color: var(--card-bg-dark) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  background-color: var(--card-bg-dark) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* Left Column */
@@ -49,11 +49,11 @@
 }
 
 .logo-text-rf::after {
-    content: "®";
-    font-size: 1rem;
-    position: absolute;
-    top: 0;
-    right: -15px;
+  content: '®';
+  font-size: 1rem;
+  position: absolute;
+  top: 0;
+  right: -15px;
 }
 
 .company-logo-placeholder span:last-child {
@@ -103,7 +103,7 @@
 }
 
 .dark-mode .partner-logo-placeholder {
-    border-bottom-color: var(--border-dark);
+  border-bottom-color: var(--border-dark);
 }
 
 .partner-logo-placeholder img {
@@ -123,7 +123,7 @@
 }
 
 .dark-mode .partner-logo-placeholder h3 {
-    color: var(--text-dark);
+  color: var(--text-dark);
 }
 
 .license-details-container {
@@ -133,7 +133,9 @@
 }
 
 .license-card {
-  background-color: var(--bg-light) !important; /* Lighter background for cards */
+  background-color: var(
+    --bg-light
+  ) !important; /* Lighter background for cards */
   padding: 16px;
   border-radius: 8px !important;
   margin-bottom: 16px;
@@ -141,8 +143,8 @@
 }
 
 .dark-mode .license-card {
-    background-color: var(--bg-dark) !important;
-    border-color: var(--border-dark);
+  background-color: var(--bg-dark) !important;
+  border-color: var(--border-dark);
 }
 
 .license-card h4 {
@@ -153,7 +155,7 @@
 }
 
 .dark-mode .license-card h4 {
-    color: var(--text-dark);
+  color: var(--text-dark);
 }
 
 .license-card p {
@@ -164,7 +166,7 @@
 }
 
 .dark-mode .license-card p {
-    color: var(--text-secondary-dark);
+  color: var(--text-secondary-dark);
 }
 
 .license-card .status {
@@ -187,63 +189,64 @@
 
 /* Responsive Styles */
 @media (max-width: 992px) {
-    .license-main-paper {
-        flex-direction: column; /* Stack columns */
-    }
-    .license-left-column, .license-right-column {
-        width: 100%;
-    }
-    .license-left-column {
-        border-right: none;
-        border-bottom: 1px solid var(--border-light);
-    }
-    .dark-mode .license-left-column {
-        border-bottom-color: var(--border-dark);
-    }
-    .contact-info {
-        margin-top: 20px; /* Reduce top margin */
-    }
+  .license-main-paper {
+    flex-direction: column; /* Stack columns */
+  }
+  .license-left-column,
+  .license-right-column {
+    width: 100%;
+  }
+  .license-left-column {
+    border-right: none;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .dark-mode .license-left-column {
+    border-bottom-color: var(--border-dark);
+  }
+  .contact-info {
+    margin-top: 20px; /* Reduce top margin */
+  }
 }
 
 @media (max-width: 576px) {
-    .license-page-container {
-        padding: 10px;
-    }
-     .license-main-paper {
-         border-radius: 12px !important;
-     }
-    .license-left-column {
-        padding: 20px;
-    }
-     .license-right-column {
-         padding: 20px;
-     }
-     .logo-text-rf {
-         font-size: 3rem;
-     }
-     .system-info h2 {
-         font-size: 1.2rem;
-     }
-     .system-info p {
-         font-size: 0.9rem;
-     }
-     .contact-info {
-         font-size: 0.75rem;
-     }
-     .partner-logo-placeholder img {
-         max-height: 60px;
-     }
-     .partner-logo-placeholder h3 {
-         font-size: 1rem;
-     }
-     .license-card {
-         padding: 12px;
-         border-radius: 6px !important;
-     }
-     .license-card h4 {
-         font-size: 0.9rem;
-     }
-     .license-card p {
-         font-size: 0.8rem;
-     }
-} 
+  .license-page-container {
+    padding: 10px;
+  }
+  .license-main-paper {
+    border-radius: 12px !important;
+  }
+  .license-left-column {
+    padding: 20px;
+  }
+  .license-right-column {
+    padding: 20px;
+  }
+  .logo-text-rf {
+    font-size: 3rem;
+  }
+  .system-info h2 {
+    font-size: 1.2rem;
+  }
+  .system-info p {
+    font-size: 0.9rem;
+  }
+  .contact-info {
+    font-size: 0.75rem;
+  }
+  .partner-logo-placeholder img {
+    max-height: 60px;
+  }
+  .partner-logo-placeholder h3 {
+    font-size: 1rem;
+  }
+  .license-card {
+    padding: 12px;
+    border-radius: 6px !important;
+  }
+  .license-card h4 {
+    font-size: 0.9rem;
+  }
+  .license-card p {
+    font-size: 0.8rem;
+  }
+}

@@ -14,13 +14,13 @@
   --success-color: #198754; /* Green */
   --danger-color: #dc3545; /* Red */
   /* New summary card colors */
-  --summary-max-bg: #e1d5e7; 
+  --summary-max-bg: #e1d5e7;
   --summary-max-text: #6f42c1;
   --summary-avg-bg: #ffe8cc;
   --summary-avg-text: #fd7e14;
   --summary-min-bg: #cff4fc;
   --summary-min-text: #198754;
-  
+
   /* Dark Mode */
   --bg-dark: #1a1a2e; /* Dark blue background */
   --card-bg-dark: #232946; /* Slightly lighter dark blue for cards */
@@ -43,15 +43,15 @@
   --max-temp-bg-light: #f8a0a1;
   --max-temp-text-light: #ff5757;
   --avg-temp-bg-light: #f8d6a2;
-  --avg-temp-text-light: #ff914d; 
+  --avg-temp-text-light: #ff914d;
   --min-temp-bg-light: #8fd3fa;
   --min-temp-text-light: #1c88cf;
 
   /* Dark Mode Temperature Summary Card Colors */
   --max-temp-bg-dark: #5c3e3e;
   --max-temp-text-dark: #fbb8b8;
-  --avg-temp-bg-dark: #5c4e3e; 
-  --avg-temp-text-dark: #fccfae; 
+  --avg-temp-bg-dark: #5c4e3e;
+  --avg-temp-text-dark: #fccfae;
   --min-temp-bg-dark: #395164;
   --min-temp-text-dark: #a4d9fc;
 
@@ -81,7 +81,9 @@
 .app {
   font-family: 'Roboto', 'Noto Sans Thai', sans-serif;
   height: 100vh;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
   background-color: var(--bg-light);
   color: var(--text-light);
 }
@@ -110,12 +112,12 @@
 /* Responsive Styles */
 @media (max-width: 768px) {
   .content {
-    padding: 15px; 
+    padding: 15px;
   }
 }
 
 @media (max-width: 576px) {
-   .content {
-     padding: 10px;
-   }
-} 
+  .content {
+    padding: 10px;
+  }
+}

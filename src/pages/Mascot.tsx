@@ -7,14 +7,14 @@ import {
   List,
   ListItem,
   ListItemText,
-  Typography
+  Typography,
 } from '@mui/material';
 import {
   Download as DownloadIcon,
   Share as ShareIcon,
   Fullscreen as FullscreenIcon,
   FullscreenExit as FullscreenExitIcon,
-  Search as SearchIcon
+  Search as SearchIcon,
 } from '@mui/icons-material';
 import './Mascot.css'; // Use specific CSS for this page
 
@@ -40,14 +40,13 @@ const Mascot: React.FC = () => {
   const [currentMascot, setCurrentMascot] = useState('');
   const [pm25Level, setPm25Level] = useState<number | null>(null); // Store PM2.5 level
 
-  const filteredGroups = dummyGroups.filter(group =>
-    group.toLowerCase().includes(groupSearchTerm.toLowerCase())
+  const filteredGroups = dummyGroups.filter((group) =>
+    group.toLowerCase().includes(groupSearchTerm.toLowerCase()),
   );
 
   // Dummy data for display
   const currentGroupName = 'หมู่บ้านอยู่ดี';
   const currentTime = '5 มีนาคม 2568 8.00 น.';
-  
 
   // Function to toggle fullscreen
   const handleToggleFullScreen = () => {
@@ -55,8 +54,10 @@ const Mascot: React.FC = () => {
     if (!elem) return;
 
     if (!document.fullscreenElement) {
-      elem.requestFullscreen().catch(err => {
-        console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+      elem.requestFullscreen().catch((err) => {
+        console.error(
+          `Error attempting to enable full-screen mode: ${err.message} (${err.name})`,
+        );
       });
     } else {
       document.exitFullscreen();
@@ -105,17 +106,33 @@ const Mascot: React.FC = () => {
     setCurrentMascot(`${import.meta.env.BASE_URL}${mascotImageSrc}`);
   }, [pm25Level]);
 
+  const getAirQualityMessage = () => {
+    if (pm25Level === null) {
+      return 'กำลังโหลดข้อมูล...'; // Loading data
+    } else if (pm25Level <= 35) {
+      return 'คุณภาพอากาศดีมาก!'; // Very good
+    } else if (pm25Level <= 75) {
+      return 'คุณภาพอากาศปานกลาง'; // Moderate
+    } else {
+      return 'คุณภาพอากาศไม่ดี'; // Unhealthy
+    }
+  };
+
   return (
     <div className="page-container mascot-page-container">
       {/* Left Toolbar */}
       <div className="mascot-toolbar">
-        <IconButton className="toolbar-button">
+        <IconButton className="toolbar-button" aria-label="Download mascot image">
           <DownloadIcon />
         </IconButton>
-        <IconButton className="toolbar-button">
+        <IconButton className="toolbar-button" aria-label="Share mascot image">
           <ShareIcon />
         </IconButton>
-        <IconButton className="toolbar-button" onClick={handleToggleFullScreen}>
+        <IconButton
+          className="toolbar-button"
+          onClick={handleToggleFullScreen}
+          aria-label={isFullScreen ? 'Exit fullscreen' : 'Enter fullscreen'}
+        >
           {isFullScreen ? <FullscreenExitIcon /> : <FullscreenIcon />}
         </IconButton>
       </div>
@@ -124,8 +141,7 @@ const Mascot: React.FC = () => {
       <div className="mascot-main-content" ref={mainContentRef}>
         <div className="welcome-text">
           <Typography variant="h5">วันนี้ {currentGroupName}</Typography>
-          <Typography variant="h4">คุณภาพอากาศดีมาก!</Typography>
-          
+          <Typography variant="h4">{getAirQualityMessage()}</Typography>
         </div>
 
         <div className="mascot-display-area">
@@ -136,20 +152,34 @@ const Mascot: React.FC = () => {
           </div>
           {/* Conditional rendering for the leaf overlay */}
           {pm25Level !== null && pm25Level > 0 && (
-            <img src={`${import.meta.env.BASE_URL}leaf.png`} alt="Leaf decoration" className="pm25-leaf-overlay" />
+            <img
+              src={`${import.meta.env.BASE_URL}leaf.png`}
+              alt="Leaf decoration"
+              className="pm25-leaf-overlay"
+            />
           )}
           <div className="pm25-circle">
-            <Typography variant="h6" className="pm25-label">PM2.5</Typography>
-            <Typography variant="h2" component="p" className="pm25-value">{pm25Level !== null ? pm25Level.toFixed(1) : 'Loading...'}</Typography>
-            <Typography variant="h5" className="pm25-unit">µg/m³</Typography>
+            <Typography variant="h6" className="pm25-label">
+              PM2.5
+            </Typography>
+            <Typography variant="h2" component="p" className="pm25-value">
+              {pm25Level !== null ? pm25Level.toFixed(1) : 'Loading...'}
+            </Typography>
+            <Typography variant="h5" className="pm25-unit">
+              µg/m³
+            </Typography>
           </div>
         </div>
-        <Typography variant="subtitle1" className="timestamp">ตรวจวัดเมื่อ {currentTime}</Typography>
+        <Typography variant="subtitle1" className="timestamp">
+          ตรวจวัดเมื่อ {currentTime}
+        </Typography>
       </div>
 
       {/* Right Group Panel */}
       <Paper elevation={3} className="mascot-group-panel">
-        <Typography variant="h6" className="group-header">Group</Typography>
+        <Typography variant="h6" className="group-header">
+          Group
+        </Typography>
         <TextField
           variant="outlined"
           size="small"
@@ -167,8 +197,8 @@ const Mascot: React.FC = () => {
           className="group-search-bar"
         />
         <List className="group-list" dense>
-          {filteredGroups.map((group, index) => (
-            <ListItem key={index} button className="group-list-item">
+          {filteredGroups.map((group) => (
+            <ListItem key={group} button className="group-list-item">
               <ListItemText primary={group} />
             </ListItem>
           ))}
@@ -178,4 +208,4 @@ const Mascot: React.FC = () => {
   );
 };
 
-export default Mascot; 
+export default Mascot;
