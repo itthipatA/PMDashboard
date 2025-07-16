@@ -8,6 +8,7 @@ import {
   Group as GroupIcon,
   Assessment as ReportIcon,
   Notifications as AlertIcon,
+  VerifiedUser as LicenseIcon,
   Logout as LogoutIcon,
   Brightness4 as DarkModeIcon,
   Brightness7 as LightModeIcon,
@@ -39,6 +40,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     { name: 'Group', path: '/group', icon: <GroupIcon /> },
     { name: 'Report', path: '/report', icon: <ReportIcon /> },
     { name: 'Alert', path: '/alert', icon: <AlertIcon /> },
+    { name: 'License', path: '/license', icon: <LicenseIcon /> },
   ];
 
   return (

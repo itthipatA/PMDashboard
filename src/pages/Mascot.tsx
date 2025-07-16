@@ -5,7 +5,7 @@ import {
   IconButton,
   Paper,
   List,
-  ListItem,
+  ListItemButton,
   ListItemText,
   Typography
 } from '@mui/material';
@@ -134,10 +134,6 @@ const Mascot: React.FC = () => {
               <img src={currentMascot} alt="Mascot" className="mascot-image" />
             )}
           </div>
-          {/* Conditional rendering for the leaf overlay */}
-          {pm25Level !== null && pm25Level > 0 && (
-            <img src={`${import.meta.env.BASE_URL}leaf.png`} alt="Leaf decoration" className="pm25-leaf-overlay" />
-          )}
           <div className="pm25-circle">
             <Typography variant="h6" className="pm25-label">PM2.5</Typography>
             <Typography variant="h2" component="p" className="pm25-value">{pm25Level !== null ? pm25Level.toFixed(1) : 'Loading...'}</Typography>
@@ -168,9 +164,9 @@ const Mascot: React.FC = () => {
         />
         <List className="group-list" dense>
           {filteredGroups.map((group, index) => (
-            <ListItem key={index} button className="group-list-item">
+            <ListItemButton key={index} className="group-list-item">
               <ListItemText primary={group} />
-            </ListItem>
+            </ListItemButton>
           ))}
         </List>
       </Paper>

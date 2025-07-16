@@ -12,6 +12,9 @@ const sampleMarkers = [
 ];
 
 const Map: React.FC = () => {
+  // Determine dark mode status
+  const isDarkMode = document.body.classList.contains('dark-mode');
+  
   // Define map container style to fill its parent (the card)
   const mapContainerStyle = {
     width: '100%',
@@ -33,6 +36,7 @@ const Map: React.FC = () => {
             zoom={zoom} 
             containerStyle={mapContainerStyle} 
             markers={sampleMarkers} // Pass sample markers
+            isDarkMode={isDarkMode} // Add dark mode support
           />
         </Paper>
       </div>

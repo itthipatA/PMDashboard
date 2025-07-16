@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   TextField,
   InputAdornment,
@@ -47,12 +47,14 @@ const dummyDevices: DeviceData[] = [
 const Device: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Basic filtering logic (can be expanded)
-  const filteredDevices = dummyDevices.filter(device =>
-    device.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    device.model.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    device.address.includes(searchTerm) ||
-    device.group.toLowerCase().includes(searchTerm.toLowerCase())
+  // Memoized filtering logic for better performance
+  const filteredDevices = useMemo(() => 
+    dummyDevices.filter(device =>
+      device.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      device.model.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      device.address.includes(searchTerm) ||
+      device.group.toLowerCase().includes(searchTerm.toLowerCase())
+    ), [searchTerm]
   );
 
   // Dummy stats

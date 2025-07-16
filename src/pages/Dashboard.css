@@ -3,8 +3,153 @@
   background-color: var(--bg-light);
 }
 
+/* Loading Skeleton Styles */
+.chart-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  height: 300px;
+  justify-content: center;
+}
+
+.skeleton-line {
+  height: 8px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  border-radius: 4px;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.skeleton-line.short {
+  width: 60%;
+}
+
+.skeleton-line.medium {
+  width: 80%;
+}
+
+.dark-mode .skeleton-line {
+  background: linear-gradient(90deg, #3a3f5a 25%, #4a4f6a 50%, #3a3f5a 75%);
+  background-size: 200% 100%;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
 .dark-mode .dashboard-container {
   background-color: var(--bg-dark);
+}
+
+/* Chart Header Styles */
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+
+.chart-header h3 {
+  margin: 0;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.dark-mode .chart-header h3 {
+  color: var(--text-dark);
+}
+
+/* PM Selector Toggle Buttons */
+.pm-selector {
+  min-width: 140px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px !important;
+}
+
+.pm-toggle-btn {
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  padding: 6px 16px !important;
+  border-radius: 8px !important;
+  text-transform: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.pm-toggle-btn.MuiButton-contained {
+  background: linear-gradient(135deg, var(--primary-color, #0d6efd), var(--accent-blue, #4dabf7)) !important;
+  color: white !important;
+  box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3) !important;
+}
+
+.pm-toggle-btn.MuiButton-outlined {
+  border-color: var(--border-light, #dee2e6) !important;
+  color: var(--text-secondary-light, #6c757d) !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+}
+
+.pm-toggle-btn.MuiButton-outlined:hover {
+  background: rgba(13, 110, 253, 0.1) !important;
+  border-color: var(--primary-color, #0d6efd) !important;
+  color: var(--primary-color, #0d6efd) !important;
+}
+
+/* Dark mode support for toggle buttons */
+.dark-mode .pm-toggle-btn.MuiButton-outlined {
+  border-color: var(--border-dark, #495057) !important;
+  color: var(--text-secondary-dark, #adb5bd) !important;
+  background: rgba(30, 30, 30, 0.8) !important;
+}
+
+.dark-mode .pm-toggle-btn.MuiButton-outlined:hover {
+  background: rgba(13, 110, 253, 0.2) !important;
+  border-color: var(--primary-color, #0d6efd) !important;
+  color: var(--primary-color, #0d6efd) !important;
+}
+
+/* Responsive design for chart header */
+@media (max-width: 768px) {
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .pm-selector {
+    align-self: flex-end;
+    min-width: 120px;
+  }
+  
+  .pm-toggle-btn {
+    font-size: 0.7rem !important;
+    padding: 5px 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-header {
+    gap: 10px;
+  }
+  
+  .chart-header h3 {
+    font-size: 1rem;
+  }
+  
+  .pm-selector {
+    min-width: 110px;
+  }
+  
+  .pm-toggle-btn {
+    font-size: 0.65rem !important;
+    padding: 4px 10px !important;
+  }
 }
 
 .dashboard-container h1 {

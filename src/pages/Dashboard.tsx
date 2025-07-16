@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Line } from 'react-chartjs-2';
 import { 
   Chart as ChartJS, 
@@ -18,6 +18,7 @@ import {
   BatteryChargingFull, 
   AccessTime 
 } from '@mui/icons-material';
+import { Button, ButtonGroup } from '@mui/material';
 import MapComponent from '../components/MapComponent'; // Import the MapComponent
 import SummaryValueCard from '../components/SummaryValueCard'; // Import the new component
 
@@ -118,6 +119,8 @@ const deviceData: DeviceSampleData[] = [
 const Dashboard: React.FC = () => {
   // State to track screen size for potential JS-based adjustments
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 576);
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedPMType, setSelectedPMType] = useState<'pm25' | 'pm10'>('pm25');
 
   // Effect to update screen size state on window resize
   useEffect(() => {
@@ -146,6 +149,14 @@ const Dashboard: React.FC = () => {
     };
   }, []); // Empty dependency array means this effect runs once on mount and cleanup on unmount
 
+  // Simulate loading state
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   // --- Sample Data ---
   const pm25BorderColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim() || '#0d6efd'; // Blue
   const tempBorderColor = getComputedStyle(document.documentElement).getPropertyValue('--temp-color').trim() || '#e83e8c'; // Pink
@@ -166,7 +177,7 @@ const Dashboard: React.FC = () => {
     ? textSecondaryDark 
     : textSecondaryLight;
 
-  const pm25Data = {
+  const pm25Data = useMemo(() => ({
     labels: ['20:25', '21:25', '22:25', '23:25', '00:25', '01:25', '02:25', '03:25', '04:25', '05:25', '06:25', '07:25', '08:25', '09:25', '10:25', '11:25', '12:25', '13:25', '14:25', '15:25', '16:25', '17:25', '18:25', '19:25'],
     datasets: [
       {
@@ -182,9 +193,30 @@ const Dashboard: React.FC = () => {
         tension: 0.4 // Smoothen the line
       },
     ],
-  };
+  }), [pm25BorderColor]);
 
-  const tempData = {
+  // PM10 data (typically 1.5-2x higher than PM2.5)
+  const pm10BorderColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-orange').trim() || '#ff8c00';
+  
+  const pm10Data = useMemo(() => ({
+    labels: ['20:25', '21:25', '22:25', '23:25', '00:25', '01:25', '02:25', '03:25', '04:25', '05:25', '06:25', '07:25', '08:25', '09:25', '10:25', '11:25', '12:25', '13:25', '14:25', '15:25', '16:25', '17:25', '18:25', '19:25'],
+    datasets: [
+      {
+        label: 'PM10 (µg/m³)',
+        data: [58, 61, 65, 72, 78, 82, 79, 76, 73, 69, 65, 60, 56, 48, 42, 38, 35, 37, 39, 43, 48, 52, 55, 57],
+        fill: true, // Enable fill for area chart
+        borderColor: pm10BorderColor,
+        backgroundColor: (context: ScriptableContext<"line">) => { // Use ScriptableContext
+          const ctx = context.chart.ctx;
+          const chartArea = context.chart.chartArea;
+          return createGradient(ctx, chartArea, pm10BorderColor);
+        },
+        tension: 0.4 // Smoothen the line
+      },
+    ],
+  }), [pm10BorderColor]);
+
+  const tempData = useMemo(() => ({
     labels: ['20:25', '21:25', '22:25', '23:25', '00:25', '01:25', '02:25', '03:25', '04:25', '05:25', '06:25', '07:25', '08:25', '09:25', '10:25', '11:25', '12:25', '13:25', '14:25', '15:25', '16:25', '17:25', '18:25', '19:25'],
     datasets: [
       {
@@ -200,7 +232,24 @@ const Dashboard: React.FC = () => {
         tension: 0.4
       },
     ],
-  };
+  }), [tempBorderColor]);
+
+  // Dynamic chart data based on PM type selection
+  const currentPMData = useMemo(() => {
+    return selectedPMType === 'pm25' ? pm25Data : pm10Data;
+  }, [selectedPMType, pm25Data, pm10Data]);
+
+  // Dynamic summary values based on PM type selection
+  const pmSummaryValues = useMemo(() => {
+    const values = deviceData.map(device => 
+      selectedPMType === 'pm25' ? device.pm25 : device.pm10
+    );
+    return {
+      max: Math.max(...values),
+      avg: Math.round(values.reduce((a, b) => a + b) / values.length),
+      min: Math.min(...values)
+    };
+  }, [selectedPMType]);
 
   // --- Chart Options ---
   const commonChartOptions = {
@@ -238,13 +287,13 @@ const Dashboard: React.FC = () => {
     },
   };
 
-  const pm25ChartOptions = { 
+  const pmChartOptions = { 
       ...commonChartOptions, 
       plugins: { 
           ...commonChartOptions.plugins, 
           title: { 
               display: false, 
-              text: 'PM2.5 Trend',
+              text: `${selectedPMType === 'pm25' ? 'PM2.5' : 'PM10'} Trend`,
               color: tickColor
           },
           legend: {
@@ -264,7 +313,7 @@ const Dashboard: React.FC = () => {
               ...commonChartOptions.scales.y,
               title: { 
                   display: true, 
-                  text: 'PM2.5 (µg/m³)', 
+                  text: `${selectedPMType === 'pm25' ? 'PM2.5' : 'PM10'} (µg/m³)`, 
                   color: tickColor
               }
           }, 
@@ -340,11 +389,6 @@ const Dashboard: React.FC = () => {
       return null; // Return null for invalid locations
   }).filter(marker => marker !== null) as { id: string; lat: number; lng: number }[]; // Filter out nulls and assert type
 
-  // Dummy data for summary cards (replace with actual calculations later)
-  const maxPm25 = 117;
-  const avgPm25 = 64;
-  const minPm25 = 20;
-
   // Dummy data for temp summary cards
   const maxTemp = 117; // Example, same as image
   const avgTemp = 64;  // Example, same as image
@@ -399,27 +443,61 @@ const Dashboard: React.FC = () => {
       <div className="dashboard-grid">
         {/* Left Column */} 
         <div className="chart-column">
-          {/* PM2.5 Chart Card */}
+          {/* PM2.5/PM10 Chart Card */}
           <div className="chart-card pm25-chart-card"> 
-            <h3>PM2.5 Level (24h)</h3>
+            <div className="chart-header">
+              <h3>{selectedPMType === 'pm25' ? 'PM2.5' : 'PM10'} Level (24h)</h3>
+              <ButtonGroup className="pm-selector" size="small">
+                <Button 
+                  variant={selectedPMType === 'pm25' ? 'contained' : 'outlined'}
+                  onClick={() => setSelectedPMType('pm25')}
+                  className="pm-toggle-btn"
+                >
+                  PM2.5
+                </Button>
+                <Button 
+                  variant={selectedPMType === 'pm10' ? 'contained' : 'outlined'}
+                  onClick={() => setSelectedPMType('pm10')}
+                  className="pm-toggle-btn"
+                >
+                  PM10
+                </Button>
+              </ButtonGroup>
+            </div>
             <div className="chart-wrapper">
-              <Line key={isSmallScreen ? 'sm' : 'lg'} data={pm25Data} options={pm25ChartOptions} />
+              {isLoading ? (
+                <div className="chart-skeleton">
+                  <div className="skeleton-line"></div>
+                  <div className="skeleton-line short"></div>
+                  <div className="skeleton-line medium"></div>
+                </div>
+              ) : (
+                <Line key={`${isSmallScreen ? 'sm' : 'lg'}-${selectedPMType}`} data={currentPMData} options={pmChartOptions} />
+              )}
             </div>
             {/* Summary cards moved outside */}
           </div>
 
-          {/* PM2.5 Summary Cards Row */}
+          {/* PM Summary Cards Row */}
           <div className="pm25-summary-container summary-card-row">
-              <SummaryValueCard title="Maximum" value={maxPm25} unit="µg/m³" colorClass="max-pm" />
-              <SummaryValueCard title="Average" value={avgPm25} unit="µg/m³" colorClass="avg-pm" />
-              <SummaryValueCard title="Minimum" value={minPm25} unit="µg/m³" colorClass="min-pm" />
+              <SummaryValueCard title="Maximum" value={pmSummaryValues.max} unit="µg/m³" colorClass="max-pm" />
+              <SummaryValueCard title="Average" value={pmSummaryValues.avg} unit="µg/m³" colorClass="avg-pm" />
+              <SummaryValueCard title="Minimum" value={pmSummaryValues.min} unit="µg/m³" colorClass="min-pm" />
           </div>
 
           {/* Temperature Chart Card */}
           <div className="chart-card temp-chart-card"> 
             <h3>Temperature (24h)</h3>
             <div className="chart-wrapper">
-              <Line key={isSmallScreen ? 'sm-temp' : 'lg-temp'} data={tempData} options={tempChartOptions} />
+              {isLoading ? (
+                <div className="chart-skeleton">
+                  <div className="skeleton-line"></div>
+                  <div className="skeleton-line short"></div>
+                  <div className="skeleton-line medium"></div>
+                </div>
+              ) : (
+                <Line key={isSmallScreen ? 'sm-temp' : 'lg-temp'} data={tempData} options={tempChartOptions} />
+              )}
             </div>
           </div>
 
