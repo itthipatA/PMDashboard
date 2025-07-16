@@ -1,8 +1,26 @@
 {
   "name": "pmdashboard",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Real-time Environmental Monitoring System for PM2.5/PM10 air quality tracking with IoT sensor integration",
   "type": "module",
+  "author": "RF Company",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itthipatA/PMDashboard.git"
+  },
+  "homepage": "https://itthipata.github.io/PMDashboard/",
+  "keywords": [
+    "environmental-monitoring",
+    "air-quality",
+    "iot",
+    "pm2.5",
+    "pm10",
+    "dashboard",
+    "react",
+    "typescript"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
